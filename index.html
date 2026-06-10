@@ -1,0 +1,1255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>iDOPE — Records & Brand</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --red: #CC0000;
+      --black: #0a0a0a;
+      --dark: #111111;
+      --card: #161616;
+      --border: #222222;
+      --white: #ffffff;
+      --grey: #888888;
+      --light: #cccccc;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--black);
+      color: var(--white);
+      font-family: 'Inter', sans-serif;
+      font-size: 16px;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 1000;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 40px;
+      height: 70px;
+      background: rgba(10,10,10,0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav-logo {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 28px;
+      letter-spacing: 2px;
+      text-decoration: none;
+      color: var(--white);
+    }
+    .nav-logo span { color: var(--red); }
+
+    .nav-links {
+      display: flex;
+      gap: 36px;
+      list-style: none;
+    }
+    .nav-links a {
+      color: var(--light);
+      text-decoration: none;
+      font-size: 13px;
+      font-weight: 500;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--white); }
+
+    .nav-contact {
+      background: var(--red);
+      color: var(--white) !important;
+      padding: 8px 20px;
+      border-radius: 2px;
+      font-size: 12px !important;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      text-decoration: none;
+      font-weight: 600 !important;
+      transition: background 0.2s !important;
+    }
+    .nav-contact:hover { background: #aa0000 !important; }
+
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      padding: 4px;
+      background: none;
+      border: none;
+    }
+    .hamburger span {
+      display: block;
+      width: 24px;
+      height: 2px;
+      background: var(--white);
+      border-radius: 2px;
+      transition: all 0.35s cubic-bezier(0.4,0,0.2,1);
+      transform-origin: center;
+    }
+    .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .hamburger.open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+    .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+    .mobile-menu {
+      display: none;
+      position: fixed;
+      top: 70px; left: 0; right: 0;
+      background: rgba(10,10,10,0.98);
+      backdrop-filter: blur(16px);
+      padding: 32px 40px;
+      border-bottom: 1px solid var(--border);
+      z-index: 999;
+      flex-direction: column;
+      gap: 24px;
+      transform: translateY(-20px);
+      opacity: 0;
+      transition: transform 0.35s cubic-bezier(0.4,0,0.2,1), opacity 0.35s;
+    }
+    .mobile-menu.open { transform: translateY(0); opacity: 1; }
+    .mobile-menu a {
+      color: var(--white);
+      text-decoration: none;
+      font-size: 22px;
+      font-family: 'Bebas Neue', sans-serif;
+      letter-spacing: 2px;
+      transition: color 0.2s;
+    }
+    .mobile-menu a:hover { color: var(--red); }
+    .mobile-menu .mob-contact {
+      display: inline-block;
+      background: var(--red);
+      padding: 12px 28px;
+      border-radius: 2px;
+      font-size: 14px;
+      font-family: 'Inter', sans-serif;
+      font-weight: 600;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      width: fit-content;
+    }
+
+    /* ── HERO ── */
+    #hero {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 140px 40px 80px;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 60% 50% at 50% 60%, rgba(204,0,0,0.13) 0%, transparent 70%),
+        radial-gradient(ellipse 40% 40% at 20% 20%, rgba(204,0,0,0.06) 0%, transparent 60%);
+      pointer-events: none;
+    }
+    .hero-eyebrow {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      color: var(--red);
+      margin-bottom: 24px;
+      opacity: 0;
+      animation: fadeUp 0.8s 0.2s forwards;
+    }
+    .hero-title {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(100px, 18vw, 220px);
+      line-height: 0.88;
+      letter-spacing: -2px;
+      color: var(--white);
+      opacity: 0;
+      animation: fadeUp 0.8s 0.4s forwards;
+    }
+    .hero-title .i-red { color: var(--red); }
+    .hero-sub {
+      font-size: 13px;
+      font-weight: 400;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--grey);
+      margin-top: 28px;
+      opacity: 0;
+      animation: fadeUp 0.8s 0.6s forwards;
+    }
+    .hero-divider {
+      width: 40px;
+      height: 2px;
+      background: var(--red);
+      margin: 32px auto;
+      opacity: 0;
+      animation: fadeUp 0.8s 0.7s forwards;
+    }
+    .hero-tagline {
+      font-size: 15px;
+      color: var(--light);
+      max-width: 480px;
+      line-height: 1.7;
+      opacity: 0;
+      animation: fadeUp 0.8s 0.85s forwards;
+    }
+    .hero-cta {
+      display: flex;
+      gap: 16px;
+      margin-top: 44px;
+      flex-wrap: wrap;
+      justify-content: center;
+      opacity: 0;
+      animation: fadeUp 0.8s 1s forwards;
+    }
+    .btn-primary {
+      background: var(--red);
+      color: var(--white);
+      padding: 14px 36px;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      text-decoration: none;
+      border-radius: 2px;
+      transition: background 0.2s, transform 0.2s;
+      display: inline-block;
+    }
+    .btn-primary:hover { background: #aa0000; transform: translateY(-2px); }
+    .btn-outline {
+      background: transparent;
+      color: var(--white);
+      padding: 14px 36px;
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      text-decoration: none;
+      border: 1px solid var(--border);
+      border-radius: 2px;
+      transition: border-color 0.2s, transform 0.2s;
+      display: inline-block;
+    }
+    .btn-outline:hover { border-color: var(--white); transform: translateY(-2px); }
+
+    /* ── TICKER ── */
+    .ticker {
+      background: var(--red);
+      padding: 14px 0;
+      overflow: hidden;
+      white-space: nowrap;
+    }
+    .ticker-track {
+      display: inline-flex;
+      animation: ticker-scroll 32s linear infinite;
+    }
+    .ticker:hover .ticker-track { animation-play-state: paused; }
+    .ticker-item {
+      display: inline-flex;
+      align-items: center;
+      gap: 18px;
+      padding: 0 28px;
+      text-decoration: none;
+      transition: opacity 0.2s;
+      flex-shrink: 0;
+    }
+    .ticker-item:hover { opacity: 0.75; }
+    .ticker-label {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 20px;
+      letter-spacing: 3px;
+      color: var(--white);
+      white-space: nowrap;
+    }
+    .ticker-dot {
+      width: 5px;
+      height: 5px;
+      background: rgba(255,255,255,0.45);
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+    .ticker-arrow {
+      font-size: 13px;
+      color: rgba(255,255,255,0.65);
+      font-family: 'Inter', sans-serif;
+      font-weight: 600;
+      letter-spacing: 1px;
+    }
+    @keyframes ticker-scroll {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+
+    /* ── SECTIONS generic ── */
+    .section-wrap {
+      padding: 100px 40px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    .section-label {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      color: var(--red);
+      margin-bottom: 16px;
+      display: block;
+    }
+    .section-title {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(42px, 6vw, 72px);
+      line-height: 1;
+      letter-spacing: 1px;
+      color: var(--white);
+      margin-bottom: 48px;
+    }
+    .section-divider {
+      border: none;
+      border-top: 1px solid var(--border);
+    }
+
+    /* ── CATEGORY BANNERS (Def Jam style) ── */
+    .category-banners {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 3px;
+      background: var(--border);
+    }
+    .cat-banner {
+      position: relative;
+      overflow: hidden;
+      aspect-ratio: 4/3;
+      cursor: pointer;
+      text-decoration: none;
+      display: block;
+    }
+    .cat-banner img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.6s cubic-bezier(0.4,0,0.2,1);
+      filter: brightness(0.7);
+    }
+    .cat-banner:hover img { transform: scale(1.06); filter: brightness(0.5); }
+
+    .cat-overlay {
+      position: absolute;
+      inset: 0;
+      background: var(--red);
+      opacity: 0;
+      transition: opacity 0.4s cubic-bezier(0.4,0,0.2,1);
+    }
+    .cat-banner:hover .cat-overlay { opacity: 0.75; }
+
+    .cat-content {
+      position: absolute;
+      top: 0; left: 0;
+      padding: 28px 32px;
+      z-index: 2;
+    }
+    .cat-title {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(32px, 4vw, 52px);
+      line-height: 1;
+      letter-spacing: 1px;
+      color: var(--white);
+      display: block;
+      margin-bottom: 8px;
+    }
+    .cat-link {
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.7);
+      text-decoration: underline;
+      text-underline-offset: 3px;
+      transition: color 0.2s;
+    }
+    .cat-banner:hover .cat-link { color: var(--white); }
+
+    /* ── ABOUT ── */
+    #about {
+      background: var(--dark);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
+    }
+    .about-text .section-title { margin-bottom: 24px; }
+    .about-intro {
+      font-size: 16px;
+      color: var(--light);
+      line-height: 1.85;
+      margin-bottom: 24px;
+    }
+    .about-mission {
+      font-size: 14px;
+      color: var(--grey);
+      line-height: 1.85;
+      border-left: 3px solid var(--red);
+      padding-left: 20px;
+      margin-bottom: 40px;
+    }
+    .about-pillars {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+    .pillar {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 3px;
+      padding: 20px;
+    }
+    .pillar-icon {
+      font-size: 22px;
+      margin-bottom: 10px;
+      display: block;
+    }
+    .pillar-title {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 18px;
+      letter-spacing: 1px;
+      color: var(--white);
+      margin-bottom: 6px;
+    }
+    .pillar-text {
+      font-size: 12px;
+      color: var(--grey);
+      line-height: 1.6;
+    }
+    .about-img-wrap {
+      position: relative;
+    }
+    .about-img-wrap::before {
+      content: '';
+      position: absolute;
+      inset: -12px -12px 12px 12px;
+      border: 1px solid var(--red);
+      border-radius: 2px;
+      pointer-events: none;
+      z-index: 0;
+    }
+    .about-img-wrap img {
+      width: 100%;
+      display: block;
+      border-radius: 2px;
+      position: relative;
+      z-index: 1;
+    }
+
+    /* ── RELEASES ── */
+    #releases { border-top: 1px solid var(--border); }
+    .releases-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 24px;
+    }
+    .release-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      overflow: hidden;
+      transition: transform 0.3s, border-color 0.3s;
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    .release-card.visible { opacity: 1; transform: translateY(0); transition: opacity 0.6s, transform 0.6s, border-color 0.3s; }
+    .release-card:hover { transform: translateY(-4px); border-color: var(--red); }
+    .release-card iframe { width: 100%; border: none; display: block; }
+    .release-info { padding: 20px; }
+    .release-title {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 22px;
+      letter-spacing: 1px;
+      color: var(--white);
+      margin-bottom: 4px;
+    }
+    .release-meta { font-size: 12px; color: var(--grey); letter-spacing: 1px; text-transform: uppercase; }
+
+    /* ── VIDEO ── */
+    #video { border-top: 1px solid var(--border); }
+    .video-wrap {
+      position: relative;
+      padding-bottom: 56.25%;
+      height: 0;
+      overflow: hidden;
+      border-radius: 3px;
+      border: 1px solid var(--border);
+    }
+    .video-wrap iframe {
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+    .video-meta {
+      margin-top: 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+    .video-title {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 32px;
+      letter-spacing: 1px;
+      color: var(--white);
+    }
+    .video-sub { font-size: 13px; color: var(--grey); margin-top: 4px; }
+
+    /* ── PRESS ── */
+    #press { border-top: 1px solid var(--border); background: var(--dark); }
+    .press-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px;
+    }
+    .press-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 3px;
+      padding: 28px;
+      transition: border-color 0.2s, transform 0.2s;
+    }
+    .press-card:hover { border-color: var(--red); transform: translateY(-2px); }
+    .press-quote {
+      font-size: 15px;
+      color: var(--light);
+      line-height: 1.75;
+      font-style: italic;
+      margin-bottom: 20px;
+    }
+    .press-quote::before { content: '"'; color: var(--red); font-size: 24px; font-style: normal; display: block; margin-bottom: 8px; font-family: 'Bebas Neue', sans-serif; }
+    .press-source {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--grey);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .press-source:hover { color: var(--white); }
+
+    /* ── MUSICIANS ── */
+    #musicians { border-top: 1px solid var(--border); }
+    .artist-block {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
+      opacity: 0;
+      transform: translateY(40px);
+      transition: opacity 0.7s, transform 0.7s;
+    }
+    .artist-block.visible { opacity: 1; transform: translateY(0); }
+    .artist-img-wrap {
+      position: relative;
+    }
+    .artist-img-wrap::before {
+      content: '';
+      position: absolute;
+      inset: -12px -12px 12px 12px;
+      border: 1px solid var(--red);
+      border-radius: 2px;
+      pointer-events: none;
+      z-index: 0;
+    }
+    .artist-img-wrap img {
+      width: 100%;
+      display: block;
+      border-radius: 2px;
+      position: relative;
+      z-index: 1;
+    }
+    .artist-name {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(52px, 7vw, 88px);
+      line-height: 0.9;
+      letter-spacing: 2px;
+      color: var(--white);
+      margin-bottom: 8px;
+    }
+    .artist-genre {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--red);
+      margin-bottom: 24px;
+    }
+    .artist-bio {
+      font-size: 15px;
+      color: var(--light);
+      line-height: 1.8;
+      margin-bottom: 32px;
+    }
+    .artist-stats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      margin-bottom: 36px;
+      padding: 24px 0;
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+    .stat-num {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 32px;
+      color: var(--white);
+      line-height: 1;
+    }
+    .stat-label { font-size: 10px; color: var(--grey); letter-spacing: 1.5px; text-transform: uppercase; margin-top: 4px; }
+    .artist-links { display: flex; gap: 12px; flex-wrap: wrap; }
+    .artist-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--light);
+      text-decoration: none;
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      border: 1px solid var(--border);
+      padding: 10px 18px;
+      border-radius: 2px;
+      transition: all 0.2s;
+    }
+    .artist-link:hover { color: var(--white); border-color: var(--white); }
+    .artist-link.spotify:hover { border-color: #1DB954; color: #1DB954; }
+    .artist-link.instagram:hover { border-color: #E1306C; color: #E1306C; }
+
+    /* ── FASHION ── */
+    #fashion { border-top: 1px solid var(--border); }
+
+    /* product grid — white bg */
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 3px;
+      background: var(--border);
+    }
+    .product-card {
+      background: #ffffff;
+      overflow: hidden;
+      position: relative;
+      cursor: pointer;
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    .product-card.visible { opacity: 1; transform: translateY(0); transition: opacity 0.5s, transform 0.5s; }
+    .product-img {
+      width: 100%;
+      aspect-ratio: 1;
+      display: block;
+      object-fit: contain;
+      background: #ffffff;
+      transition: transform 0.5s;
+    }
+    .product-card:hover .product-img { transform: scale(1.05); }
+    .product-overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(0,0,0,0.82);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+    .product-card:hover .product-overlay { opacity: 1; }
+    .product-name {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 22px;
+      letter-spacing: 2px;
+      color: var(--white);
+      text-align: center;
+      padding: 0 20px;
+    }
+    .product-shop-btn {
+      background: var(--red);
+      color: var(--white);
+      padding: 10px 24px;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      text-decoration: none;
+      border-radius: 2px;
+      transition: background 0.2s;
+    }
+    .product-shop-btn:hover { background: #aa0000; }
+
+    .fashion-cta {
+      text-align: center;
+      padding: 60px 40px;
+      border-top: 1px solid var(--border);
+    }
+    .fashion-cta p { font-size: 14px; color: var(--grey); letter-spacing: 2px; text-transform: uppercase; margin-bottom: 24px; }
+
+    /* ── SOCIAL ── */
+    #social { border-top: 1px solid var(--border); text-align: center; }
+    #social > p { font-size: 14px; color: var(--grey); margin-bottom: 48px; }
+    .social-links { display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; }
+    .social-link {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      color: var(--light);
+      text-decoration: none;
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      border: 1px solid var(--border);
+      padding: 14px 28px;
+      border-radius: 2px;
+      transition: all 0.25s;
+      min-width: 160px;
+      justify-content: center;
+    }
+    .social-link:hover { border-color: var(--white); color: var(--white); transform: translateY(-3px); }
+    .social-link.spotify:hover { border-color: #1DB954; color: #1DB954; }
+    .social-link.youtube:hover { border-color: #FF0000; color: #FF0000; }
+    .social-link.instagram:hover { border-color: #E1306C; color: #E1306C; }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--dark);
+      border-top: 1px solid var(--border);
+      padding: 60px 40px 40px;
+    }
+    .footer-inner { max-width: 1200px; margin: 0 auto; }
+    .footer-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 48px;
+      flex-wrap: wrap;
+      gap: 32px;
+    }
+    .footer-logo {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 42px;
+      letter-spacing: 3px;
+      color: var(--white);
+      text-decoration: none;
+    }
+    .footer-logo span { color: var(--red); }
+    .footer-tagline { font-size: 13px; color: var(--grey); margin-top: 8px; max-width: 280px; line-height: 1.7; }
+    .footer-nav { display: flex; gap: 60px; flex-wrap: wrap; }
+    .footer-col h4 {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      color: var(--white);
+      margin-bottom: 20px;
+    }
+    .footer-col a {
+      display: block;
+      color: var(--grey);
+      text-decoration: none;
+      font-size: 13px;
+      margin-bottom: 12px;
+      transition: color 0.2s;
+    }
+    .footer-col a:hover { color: var(--white); }
+    .footer-bottom {
+      border-top: 1px solid var(--border);
+      padding-top: 28px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+    .footer-copy { font-size: 12px; color: var(--grey); }
+    .footer-made {
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--white);
+      text-align: center;
+      letter-spacing: 0.5px;
+    }
+    .footer-made a { color: var(--red); text-decoration: none; transition: opacity 0.2s; }
+    .footer-made a:hover { opacity: 0.8; }
+
+    /* ── ANIMATIONS ── */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(24px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .reveal {
+      opacity: 0;
+      transform: translateY(32px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+
+    /* ── MOBILE ── */
+    @media (max-width: 900px) {
+      .about-grid { grid-template-columns: 1fr; gap: 48px; }
+      .about-img-wrap::before { display: none; }
+      .press-grid { grid-template-columns: 1fr; }
+      .artist-block { grid-template-columns: 1fr; gap: 40px; }
+      .artist-img-wrap::before { display: none; }
+      .category-banners { grid-template-columns: 1fr; }
+      .cat-banner { aspect-ratio: 16/7; }
+    }
+    @media (max-width: 768px) {
+      nav { padding: 0 20px; }
+      .nav-links, .nav-contact { display: none; }
+      .hamburger { display: flex; }
+      .mobile-menu { display: flex; }
+      .section-wrap { padding: 60px 20px; }
+      .hero-title { font-size: clamp(80px, 22vw, 140px); }
+      .product-grid { grid-template-columns: repeat(2, 1fr); }
+      .footer-top { flex-direction: column; }
+      .footer-bottom { flex-direction: column; text-align: center; }
+      .footer-made { text-align: center; }
+    }
+    @media (max-width: 480px) {
+      .hero-cta { flex-direction: column; align-items: center; }
+      .about-pillars { grid-template-columns: 1fr; }
+      .product-grid { grid-template-columns: repeat(2, 1fr); }
+      .social-link { min-width: 140px; padding: 12px 16px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <a href="#" class="nav-logo"><span>i</span>DOPE</a>
+    <ul class="nav-links">
+      <li><a href="#releases">Music</a></li>
+      <li><a href="#musicians">Artists</a></li>
+      <li><a href="#fashion">Fashion</a></li>
+      <li><a href="#about">About</a></li>
+    </ul>
+    <a href="mailto:info@idoperecords.com" class="nav-contact">Contact</a>
+    <button class="hamburger" id="hamburger" aria-label="Open menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <!-- MOBILE MENU -->
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="#releases" onclick="closeMobile()">Music</a>
+    <a href="#musicians" onclick="closeMobile()">Artists</a>
+    <a href="#fashion" onclick="closeMobile()">Fashion</a>
+    <a href="#about" onclick="closeMobile()">About</a>
+    <a href="mailto:info@idoperecords.com" class="mob-contact">Contact</a>
+  </div>
+
+  <!-- HERO -->
+  <section id="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-eyebrow">London · Est. 2017</div>
+    <h1 class="hero-title"><span class="i-red">i</span>DOPE</h1>
+    <p class="hero-sub">Records & Brand</p>
+    <div class="hero-divider"></div>
+    <p class="hero-tagline">More than a record label. A movement built on music, mental health, culture, and the belief that bold style speaks louder than words.</p>
+    <div class="hero-cta">
+      <a href="#releases" class="btn-primary">New Releases</a>
+      <a href="#fashion" class="btn-outline">Shop The Brand</a>
+    </div>
+  </section>
+
+  <!-- TICKER -->
+  <div class="ticker">
+    <div class="ticker-track" id="tickerTrack">
+      <!-- set 1 -->
+      <a href="#releases" class="ticker-item"><span class="ticker-label">NEW RELEASE: MONEY LONG</span><span class="ticker-arrow">LISTEN NOW →</span></a>
+      <span class="ticker-dot"></span>
+      <a href="https://idoperecords.com/shop/" target="_blank" class="ticker-item"><span class="ticker-label">iDOPE FASHION</span><span class="ticker-arrow">SHOP NOW →</span></a>
+      <span class="ticker-dot"></span>
+      <a href="https://dantiti.spotglow-studio.com" target="_blank" class="ticker-item"><span class="ticker-label">DANTITI</span><span class="ticker-arrow">FULL EPK →</span></a>
+      <span class="ticker-dot"></span>
+      <a href="https://open.spotify.com/artist/4khozhzk76aeDXJamgmutM" target="_blank" class="ticker-item"><span class="ticker-label">STREAM ON SPOTIFY</span><span class="ticker-arrow">OPEN →</span></a>
+      <span class="ticker-dot"></span>
+      <a href="#musicians" class="ticker-item"><span class="ticker-label">MEET THE ARTISTS</span><span class="ticker-arrow">SEE ROSTER →</span></a>
+      <span class="ticker-dot"></span>
+      <!-- set 2 (duplicate for seamless loop) -->
+      <a href="#releases" class="ticker-item"><span class="ticker-label">NEW RELEASE: MONEY LONG</span><span class="ticker-arrow">LISTEN NOW →</span></a>
+      <span class="ticker-dot"></span>
+      <a href="https://idoperecords.com/shop/" target="_blank" class="ticker-item"><span class="ticker-label">iDOPE FASHION</span><span class="ticker-arrow">SHOP NOW →</span></a>
+      <span class="ticker-dot"></span>
+      <a href="https://dantiti.spotglow-studio.com" target="_blank" class="ticker-item"><span class="ticker-label">DANTITI</span><span class="ticker-arrow">FULL EPK →</span></a>
+      <span class="ticker-dot"></span>
+      <a href="https://open.spotify.com/artist/4khozhzk76aeDXJamgmutM" target="_blank" class="ticker-item"><span class="ticker-label">STREAM ON SPOTIFY</span><span class="ticker-arrow">OPEN →</span></a>
+      <span class="ticker-dot"></span>
+      <a href="#musicians" class="ticker-item"><span class="ticker-label">MEET THE ARTISTS</span><span class="ticker-arrow">SEE ROSTER →</span></a>
+      <span class="ticker-dot"></span>
+    </div>
+  </div>
+
+  <!-- CATEGORY BANNERS -->
+  <div class="category-banners">
+    <a href="#releases" class="cat-banner">
+      <img src="https://i.scdn.co/image/ab67616d00001e02e7984dded845fa1eeef1bd15" alt="Money Long - Dantiti">
+      <div class="cat-overlay"></div>
+      <div class="cat-content">
+        <span class="cat-title">New<br>Music</span>
+        <span class="cat-link">listen now</span>
+      </div>
+    </a>
+    <a href="#musicians" class="cat-banner">
+      <img src="https://res.cloudinary.com/dvznmnpys/image/upload/q_auto,f_auto,w_700/v1774382453/Dantiti_-_transparant_hrgopr.png" alt="Artists" style="object-position: top;">
+      <div class="cat-overlay"></div>
+      <div class="cat-content">
+        <span class="cat-title">Our<br>Artists</span>
+        <span class="cat-link">meet the roster</span>
+      </div>
+    </a>
+    <a href="#fashion" class="cat-banner">
+      <img src="https://res.cloudinary.com/dvznmnpys/image/upload/q_auto,f_auto,w_700/v1781096257/Model-with_Crewneck-Sweatshirt_Brown-Caterpillar_AND_Cap_Red-White_q4jxcc.png" alt="Fashion">
+      <div class="cat-overlay"></div>
+      <div class="cat-content">
+        <span class="cat-title">iDOPE<br>Fashion</span>
+        <span class="cat-link">shop now</span>
+      </div>
+    </a>
+  </div>
+
+  <!-- NEW RELEASES -->
+  <div id="releases" class="section-wrap">
+    <span class="section-label reveal">Now Playing</span>
+    <h2 class="section-title reveal">New Releases</h2>
+    <div class="releases-grid">
+      <div class="release-card">
+        <iframe src="https://open.spotify.com/embed/album/7nBeYYT0pMoS7bUXQS3vVq?utm_source=generator&theme=0" height="160" loading="lazy"></iframe>
+        <div class="release-info">
+          <div class="release-title">Money Long</div>
+          <div class="release-meta">Dantiti · 2026 · Single</div>
+        </div>
+      </div>
+      <div class="release-card">
+        <iframe src="https://open.spotify.com/embed/track/6lgGjDAPoVZbn6gIgpGIkJ?utm_source=generator&theme=0" height="160" loading="lazy"></iframe>
+        <div class="release-info">
+          <div class="release-title">Big Big Tinz</div>
+          <div class="release-meta">Dantiti · 2025 · Single</div>
+        </div>
+      </div>
+      <div class="release-card">
+        <iframe src="https://open.spotify.com/embed/album/0EFNuMBNkqtCq32I7J7FuV?utm_source=generator&theme=0" height="160" loading="lazy"></iframe>
+        <div class="release-info">
+          <div class="release-title">Life Cycle of a Butterfly II</div>
+          <div class="release-meta">Dantiti · 2025 · EP</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <hr class="section-divider">
+
+  <!-- VIDEO -->
+  <div id="video" class="section-wrap">
+    <span class="section-label reveal">Watch</span>
+    <h2 class="section-title reveal">Latest Video</h2>
+    <div class="video-wrap reveal">
+      <iframe src="https://www.youtube.com/embed/AY9xTV3b-Uw" title="Dantiti - Big Big Tinz (Official Video)" allowfullscreen loading="lazy"></iframe>
+    </div>
+    <div class="video-meta reveal">
+      <div>
+        <div class="video-title">Big Big Tinz — Official Video</div>
+        <div class="video-sub">Dantiti · via The Pit London · 2025</div>
+      </div>
+      <a href="https://www.youtube.com/@idoperecords" target="_blank" class="btn-outline" style="font-size:11px; padding: 10px 24px;">More on YouTube</a>
+    </div>
+  </div>
+
+  <hr class="section-divider">
+
+  <!-- PRESS -->
+  <div id="press" style="background: var(--dark); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);">
+    <div class="section-wrap">
+      <span class="section-label reveal">Press</span>
+      <h2 class="section-title reveal">What They're Saying</h2>
+      <div class="press-grid">
+        <div class="press-card reveal">
+          <p class="press-quote">A rising creative force with the versatility and vision to help shape Afrobeats' evolving future.</p>
+          <a href="https://www.thepitldn.com/pitnews/big-big-tinz" target="_blank" class="press-source">The Pit London →</a>
+        </div>
+        <div class="press-card reveal">
+          <p class="press-quote">Immediately engaging yet layered with personality and intention. An essential listen for fans of forward-thinking Afrobeats.</p>
+          <a href="https://www.flexmusicblog.com/post/dantiti-releases-new-single-big-big-tinz" target="_blank" class="press-source">Flex Music Blog →</a>
+        </div>
+        <div class="press-card reveal">
+          <p class="press-quote">A knack for transformation, reshaping external material into something unmistakably his own.</p>
+          <a href="https://www.theothersidereviews.com/a-chat-with-dantiti-18-12-25/" target="_blank" class="press-source">The Other Side Reviews →</a>
+        </div>
+        <div class="press-card reveal">
+          <p class="press-quote">Intimate enough to melt into your headphones, yet big enough to light up any dance floor from Lagos to London.</p>
+          <a href="https://www.thisishiphophq.com.ng" target="_blank" class="press-source">This Is Hip Hop HQ →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- MUSICIANS -->
+  <div id="musicians" class="section-wrap">
+    <span class="section-label reveal">On The Roster</span>
+    <h2 class="section-title reveal">Musicians</h2>
+    <div class="artist-block">
+      <div class="artist-img-wrap">
+        <img src="https://res.cloudinary.com/dvznmnpys/image/upload/q_auto,f_auto,w_700/v1774382453/Dantiti_-_transparant_hrgopr.png" alt="Dantiti" loading="lazy">
+      </div>
+      <div>
+        <h3 class="artist-name">Dantiti</h3>
+        <p class="artist-genre">Afrobeats · Afrofusion · R&B · Rap</p>
+        <p class="artist-bio">Nigerian-born, UK-raised. Daniel Ofuzor built his sound from Benin City to Wolverhampton, weaving Afrobeats, Afrofusion, and rap into something entirely his own. Inspired by Notorious B.I.G. as a kid in Nigeria, he carried that passion through Ghana and into the UK — where he founded iDOPE Records in 2017 to own his story from the start.</p>
+        <div class="artist-stats">
+          <div>
+            <div class="stat-num">900+</div>
+            <div class="stat-label">Monthly Listeners</div>
+          </div>
+          <div>
+            <div class="stat-num">5+</div>
+            <div class="stat-label">Years Active</div>
+          </div>
+          <div>
+            <div class="stat-num">3</div>
+            <div class="stat-label">Countries</div>
+          </div>
+        </div>
+        <div class="artist-links">
+          <a href="https://open.spotify.com/artist/4khozhzk76aeDXJamgmutM" target="_blank" class="artist-link spotify">Spotify</a>
+          <a href="https://instagram.com/itzdantiti" target="_blank" class="artist-link instagram">Instagram</a>
+          <a href="https://dantiti.spotglow-studio.com" target="_blank" class="artist-link">Full EPK</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <hr class="section-divider">
+
+  <!-- FASHION -->
+  <div id="fashion" class="section-wrap" style="padding-bottom: 0;">
+    <span class="section-label reveal">The Brand</span>
+    <h2 class="section-title reveal">iDOPE Fashion</h2>
+    <p class="reveal" style="font-size:15px; color: var(--light); max-width: 640px; line-height:1.8; margin-bottom: 48px;">Seasonal drops. Limited pieces. Every item authenticated for life. Streetwear rooted in the same culture that drives the music.</p>
+  </div>
+
+  <div class="product-grid">
+    <div class="product-card">
+      <img class="product-img" src="https://res.cloudinary.com/dvznmnpys/image/upload/q_auto,f_auto,w_600/v1781096304/Product_Cap_Red-White_dweksx.png" alt="Cap Red/White" loading="lazy">
+      <div class="product-overlay">
+        <div class="product-name">Cap — Red/White</div>
+        <a href="https://idoperecords.com/shop/" target="_blank" class="product-shop-btn">Shop Now</a>
+      </div>
+    </div>
+    <div class="product-card">
+      <img class="product-img" src="https://res.cloudinary.com/dvznmnpys/image/upload/q_auto,f_auto,w_600/v1781096297/Product_Cap_Black-White_eot4gu.png" alt="Cap Black/White" loading="lazy">
+      <div class="product-overlay">
+        <div class="product-name">Cap — Black/White</div>
+        <a href="https://idoperecords.com/shop/" target="_blank" class="product-shop-btn">Shop Now</a>
+      </div>
+    </div>
+    <div class="product-card">
+      <img class="product-img" src="https://res.cloudinary.com/dvznmnpys/image/upload/q_auto,f_auto,w_600/v1781096353/Product_Crewneck-Sweatshirt_Darkgrey-Butterfly_ygnzwc.png" alt="Crewneck Butterfly" loading="lazy">
+      <div class="product-overlay">
+        <div class="product-name">Crewneck — Butterfly</div>
+        <a href="https://idoperecords.com/shop/" target="_blank" class="product-shop-btn">Shop Now</a>
+      </div>
+    </div>
+    <div class="product-card">
+      <img class="product-img" src="https://res.cloudinary.com/dvznmnpys/image/upload/q_auto,f_auto,w_600/v1781096356/Product_Crewneck-Sweatshirt_Brown-Caterpillar_unhrks.png" alt="Crewneck Caterpillar" loading="lazy">
+      <div class="product-overlay">
+        <div class="product-name">Crewneck — Caterpillar</div>
+        <a href="https://idoperecords.com/shop/" target="_blank" class="product-shop-btn">Shop Now</a>
+      </div>
+    </div>
+    <div class="product-card">
+      <img class="product-img" src="https://res.cloudinary.com/dvznmnpys/image/upload/q_auto,f_auto,w_600/v1781096355/Product_Hoodie_Black_Globe_tjhuse.png" alt="Hoodie Black Globe" loading="lazy">
+      <div class="product-overlay">
+        <div class="product-name">Hoodie — Black Globe</div>
+        <a href="https://idoperecords.com/shop/" target="_blank" class="product-shop-btn">Shop Now</a>
+      </div>
+    </div>
+    <div class="product-card">
+      <img class="product-img" src="https://res.cloudinary.com/dvznmnpys/image/upload/q_auto,f_auto,w_600/v1781096365/Product_Hoodie_White_Globe_pycxbw.png" alt="Hoodie White Globe" loading="lazy">
+      <div class="product-overlay">
+        <div class="product-name">Hoodie — White Globe</div>
+        <a href="https://idoperecords.com/shop/" target="_blank" class="product-shop-btn">Shop Now</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="fashion-cta">
+    <p>View the full collection</p>
+    <a href="https://idoperecords.com/shop/" target="_blank" class="btn-primary">Visit The Shop</a>
+  </div>
+
+  <hr class="section-divider">
+
+  <!-- ABOUT -->
+  <div id="about" style="background: var(--dark); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);">
+    <div class="section-wrap">
+      <span class="section-label reveal">Our Story</span>
+      <h2 class="section-title reveal">About iDOPE</h2>
+      <div class="about-grid">
+        <div class="about-text">
+          <p class="about-intro">iDOPE Records is a creative hub founded by Daniel Ofuzor (Dantiti) in 2017, with a passion for music and mental wellness. We amplify bold voices, fresh sounds, and meaningful connections — aiming to reshape entertainment one beat at a time.</p>
+          <p class="about-mission">We aim to empower artists with innovative solutions, promote mental health, foster a culture where creativity and every voice are valued, and uphold ethics, sustainability, and social impact.</p>
+          <div class="about-pillars">
+            <div class="pillar reveal">
+              <span class="pillar-icon">🎵</span>
+              <div class="pillar-title">Independent Music</div>
+              <p class="pillar-text">Focused on promoting indie and emerging artists globally with full creative control.</p>
+            </div>
+            <div class="pillar reveal">
+              <span class="pillar-icon">🧠</span>
+              <div class="pillar-title">Mental Health</div>
+              <p class="pillar-text">Bringing awareness to mental health through powerful music and community programs.</p>
+            </div>
+            <div class="pillar reveal">
+              <span class="pillar-icon">🌍</span>
+              <div class="pillar-title">Global Reach</div>
+              <p class="pillar-text">Three countries, one sound — connecting cultures from Nigeria to the UK and beyond.</p>
+            </div>
+            <div class="pillar reveal">
+              <span class="pillar-icon">👕</span>
+              <div class="pillar-title">iDOPE Brand</div>
+              <p class="pillar-text">Streetwear built on the same values as the music — bold, authentic, and built to last.</p>
+            </div>
+          </div>
+        </div>
+        <div class="about-img-wrap reveal">
+          <img src="https://res.cloudinary.com/dvznmnpys/image/upload/q_auto,f_auto,w_700/v1781096378/Model-with_Crewneck-Sweatshirt_Darkgrey-Butterfly_wbkhtd.png" alt="iDOPE Brand" loading="lazy">
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SOCIAL -->
+  <div id="social" class="section-wrap" style="text-align: center;">
+    <span class="section-label reveal" style="display:block; text-align:center;">Stay Connected</span>
+    <h2 class="section-title reveal" style="text-align:center;">Follow iDOPE</h2>
+    <p class="reveal" style="font-size:14px; color:var(--grey); margin-bottom: 48px;">Music, drops, and culture — all in one place.</p>
+    <div class="social-links reveal">
+      <a href="https://instagram.com/idoperecords" target="_blank" class="social-link instagram">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+        Instagram
+      </a>
+      <a href="https://www.youtube.com/@idoperecords" target="_blank" class="social-link youtube">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M23.495 6.205a3.007 3.007 0 0 0-2.088-2.088c-1.87-.501-9.396-.501-9.396-.501s-7.507-.01-9.396.501A3.007 3.007 0 0 0 .527 6.205a31.247 31.247 0 0 0-.522 5.805 31.247 31.247 0 0 0 .522 5.783 3.007 3.007 0 0 0 2.088 2.088c1.868.502 9.396.502 9.396.502s7.506 0 9.396-.502a3.007 3.007 0 0 0 2.088-2.088 31.247 31.247 0 0 0 .5-5.783 31.247 31.247 0 0 0-.5-5.805zM9.609 15.601V8.408l6.264 3.602z"/></svg>
+        YouTube
+      </a>
+      <a href="https://open.spotify.com/artist/4khozhzk76aeDXJamgmutM" target="_blank" class="social-link spotify">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.521 17.34c-.24.359-.66.48-1.021.24-2.82-1.74-6.36-2.101-10.561-1.141-.418.122-.779-.179-.899-.539-.12-.421.18-.78.54-.9 4.56-1.021 8.52-.6 11.64 1.32.42.18.479.659.301 1.02zm1.44-3.3c-.301.42-.841.6-1.262.3-3.239-1.98-8.159-2.58-11.939-1.38-.479.12-1.02-.12-1.14-.6-.12-.48.12-1.021.6-1.141C9.6 9.9 15 10.561 18.72 12.84c.361.181.54.78.241 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.301c-.6.179-1.2-.181-1.38-.721-.18-.601.18-1.2.72-1.381 4.26-1.26 11.28-1.02 15.721 1.621.539.3.719 1.02.419 1.56-.299.421-1.02.599-1.559.3z"/></svg>
+        Spotify
+      </a>
+      <a href="mailto:info@idoperecords.com" class="social-link">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        Contact
+      </a>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-top">
+        <div>
+          <a href="#" class="footer-logo"><span>i</span>DOPE</a>
+          <p class="footer-tagline">More than a record label. A movement built on music, mental health, and independence.</p>
+        </div>
+        <div class="footer-nav">
+          <div class="footer-col">
+            <h4>Music</h4>
+            <a href="#releases">New Releases</a>
+            <a href="https://open.spotify.com/artist/4khozhzk76aeDXJamgmutM" target="_blank">Spotify</a>
+            <a href="https://www.youtube.com/@idoperecords" target="_blank">YouTube</a>
+          </div>
+          <div class="footer-col">
+            <h4>Artists</h4>
+            <a href="#musicians">Dantiti</a>
+            <a href="https://dantiti.spotglow-studio.com" target="_blank">Dantiti EPK</a>
+          </div>
+          <div class="footer-col">
+            <h4>Brand</h4>
+            <a href="#fashion">Fashion</a>
+            <a href="https://idoperecords.com/shop/" target="_blank">Shop</a>
+          </div>
+          <div class="footer-col">
+            <h4>Contact</h4>
+            <a href="mailto:info@idoperecords.com">info@idoperecords.com</a>
+            <a href="tel:+447919268959">+44 7919 268959</a>
+            <a href="https://idoperecords.com/privacy-policy/" target="_blank">Privacy Policy</a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p class="footer-copy">© 2026 iDOPE Records. All rights reserved.</p>
+        <p class="footer-made">Made by <a href="https://spotglow-studio.com" target="_blank">Spotglow Studio</a></p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Hamburger
+    const hamburger = document.getElementById('hamburger');
+    const mobileMenu = document.getElementById('mobileMenu');
+    hamburger.addEventListener('click', () => {
+      const open = hamburger.classList.toggle('open');
+      if (open) {
+        mobileMenu.style.display = 'flex';
+        requestAnimationFrame(() => mobileMenu.classList.add('open'));
+      } else {
+        mobileMenu.classList.remove('open');
+        setTimeout(() => mobileMenu.style.display = 'none', 350);
+      }
+    });
+    function closeMobile() {
+      hamburger.classList.remove('open');
+      mobileMenu.classList.remove('open');
+      setTimeout(() => mobileMenu.style.display = 'none', 350);
+    }
+
+    // Scroll reveal
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(el => {
+        if (el.isIntersecting) el.target.classList.add('visible');
+      });
+    }, { threshold: 0.08 });
+
+    document.querySelectorAll('.reveal, .release-card, .artist-block, .product-card').forEach((el, i) => {
+      el.style.transitionDelay = (i % 4) * 0.1 + 's';
+      observer.observe(el);
+    });
+  </script>
+</body>
+</html>
