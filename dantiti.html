@@ -1,0 +1,774 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dantiti — iDOPE Records</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600;700;900&display=swap" rel="stylesheet">
+  <style>
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --red: #CC0000;
+  --black: #0a0a0a;
+  --dark: #111111;
+  --card: #161616;
+  --border: #1e1e1e;
+  --white: #ffffff;
+  --grey: #777777;
+  --light: #bbbbbb;
+}
+
+html { scroll-behavior: smooth; }
+body {
+  background: var(--black);
+  color: var(--white);
+  font-family: 'Inter', sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+/* NAV */
+nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 48px;
+  height: 68px;
+  background: rgba(10,10,10,0.95);
+  backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--border);
+}
+.nav-logo {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 26px;
+  letter-spacing: 3px;
+  text-decoration: none;
+  color: var(--white);
+}
+.nav-logo .i { color: var(--red); font-size: 26px; }
+.nav-links { display: flex; gap: 40px; list-style: none; }
+.nav-links a {
+  color: var(--light);
+  text-decoration: none;
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  transition: color 0.2s;
+  position: relative;
+}
+.nav-links a::after {
+  content: '';
+  position: absolute;
+  bottom: -4px; left: 0; right: 0;
+  height: 1px;
+  background: var(--red);
+  transform: scaleX(0);
+  transition: transform 0.2s;
+}
+.nav-links a:hover { color: var(--white); }
+.nav-links a:hover::after,
+.nav-links a.active::after { transform: scaleX(1); }
+.nav-links a.active { color: var(--white); }
+.nav-contact {
+  background: var(--red);
+  color: var(--white) !important;
+  padding: 9px 22px;
+  border-radius: 2px;
+  font-size: 11px !important;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  text-decoration: none;
+  font-weight: 700 !important;
+  transition: background 0.2s !important;
+}
+.nav-contact:hover { background: #aa0000 !important; }
+.nav-contact::after { display: none !important; }
+
+/* HAMBURGER */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  cursor: pointer;
+  background: none;
+  border: none;
+  padding: 4px;
+}
+.hamburger span {
+  display: block; width: 24px; height: 2px;
+  background: var(--white); border-radius: 2px;
+  transition: all 0.35s cubic-bezier(0.4,0,0.2,1);
+  transform-origin: center;
+}
+.hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.hamburger.open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+.hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+.mobile-menu {
+  display: none;
+  position: fixed;
+  top: 68px; left: 0; right: 0;
+  background: rgba(10,10,10,0.98);
+  backdrop-filter: blur(16px);
+  padding: 36px 40px;
+  border-bottom: 1px solid var(--border);
+  z-index: 999;
+  flex-direction: column;
+  gap: 28px;
+  transform: translateY(-16px);
+  opacity: 0;
+  transition: transform 0.35s cubic-bezier(0.4,0,0.2,1), opacity 0.35s;
+}
+.mobile-menu.open { transform: translateY(0); opacity: 1; }
+.mobile-menu a {
+  color: var(--white); text-decoration: none;
+  font-size: 28px; font-family: 'Bebas Neue', sans-serif;
+  letter-spacing: 3px; transition: color 0.2s;
+}
+.mobile-menu a:hover { color: var(--red); }
+.mobile-menu .mob-contact {
+  display: inline-block; background: var(--red);
+  padding: 12px 28px; border-radius: 2px;
+  font-size: 13px; font-family: 'Inter', sans-serif;
+  font-weight: 700; letter-spacing: 2px;
+  text-transform: uppercase; width: fit-content;
+}
+
+/* TICKER */
+.ticker {
+  background: var(--red);
+  padding: 13px 0;
+  overflow: hidden;
+  white-space: nowrap;
+}
+.ticker-track {
+  display: inline-flex;
+  animation: ticker-scroll 32s linear infinite;
+}
+.ticker:hover .ticker-track { animation-play-state: paused; }
+.ticker-item {
+  display: inline-flex; align-items: center;
+  gap: 16px; padding: 0 28px;
+  text-decoration: none; transition: opacity 0.2s; flex-shrink: 0;
+}
+.ticker-item:hover { opacity: 0.7; }
+.ticker-label {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 19px; letter-spacing: 3px; color: var(--white);
+}
+.ticker-dot {
+  width: 4px; height: 4px;
+  background: rgba(255,255,255,0.4); border-radius: 50%; flex-shrink: 0;
+}
+.ticker-arrow { font-size: 12px; color: rgba(255,255,255,0.6); font-weight: 600; letter-spacing: 1px; }
+@keyframes ticker-scroll {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+/* GENERIC */
+.page-wrap { padding-top: 68px; }
+.section-label {
+  font-size: 11px; font-weight: 600; letter-spacing: 4px;
+  text-transform: uppercase; color: var(--red);
+  margin-bottom: 14px; display: block;
+}
+.section-title {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(40px, 6vw, 68px);
+  line-height: 1; letter-spacing: 1px; color: var(--white);
+}
+.section-wrap { padding: 96px 48px; max-width: 1280px; margin: 0 auto; }
+.btn-primary {
+  background: var(--red); color: var(--white);
+  padding: 13px 32px; font-size: 12px; font-weight: 700;
+  letter-spacing: 2px; text-transform: uppercase;
+  text-decoration: none; border-radius: 2px;
+  transition: background 0.2s, transform 0.2s; display: inline-block;
+}
+.btn-primary:hover { background: #aa0000; transform: translateY(-2px); }
+.btn-outline {
+  background: transparent; color: var(--white);
+  padding: 13px 32px; font-size: 12px; font-weight: 600;
+  letter-spacing: 2px; text-transform: uppercase;
+  text-decoration: none; border: 1px solid var(--border);
+  border-radius: 2px; transition: border-color 0.2s, transform 0.2s; display: inline-block;
+}
+.btn-outline:hover { border-color: var(--white); transform: translateY(-2px); }
+
+/* FOOTER */
+footer {
+  background: var(--dark);
+  border-top: 1px solid var(--border);
+  padding: 64px 48px 40px;
+}
+.footer-inner { max-width: 1280px; margin: 0 auto; }
+.footer-top {
+  display: flex; justify-content: space-between;
+  align-items: flex-start; margin-bottom: 52px;
+  flex-wrap: wrap; gap: 40px;
+}
+.footer-logo {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 44px; letter-spacing: 3px;
+  color: var(--white); text-decoration: none;
+}
+.footer-logo .i { color: var(--red); }
+.footer-tagline { font-size: 13px; color: var(--grey); margin-top: 10px; max-width: 260px; line-height: 1.7; }
+.footer-nav { display: flex; gap: 64px; flex-wrap: wrap; }
+.footer-col h4 {
+  font-size: 10px; font-weight: 700; letter-spacing: 3px;
+  text-transform: uppercase; color: var(--white); margin-bottom: 20px;
+}
+.footer-col a {
+  display: block; color: var(--grey); text-decoration: none;
+  font-size: 13px; margin-bottom: 12px; transition: color 0.2s;
+}
+.footer-col a:hover { color: var(--white); }
+.footer-bottom {
+  border-top: 1px solid var(--border); padding-top: 28px;
+  display: flex; justify-content: space-between;
+  align-items: center; flex-wrap: wrap; gap: 16px;
+}
+.footer-copy { font-size: 12px; color: var(--grey); }
+.footer-made {
+  font-size: 15px; font-weight: 700; color: var(--white);
+  text-align: center; letter-spacing: 0.5px;
+}
+.footer-made a { color: var(--red); text-decoration: none; transition: opacity 0.2s; }
+.footer-made a:hover { opacity: 0.75; }
+
+/* REVEAL */
+.reveal {
+  opacity: 0; transform: translateY(28px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+.reveal.visible { opacity: 1; transform: translateY(0); }
+
+/* MOBILE */
+@media (max-width: 768px) {
+  nav { padding: 0 20px; }
+  .nav-links, .nav-contact { display: none; }
+  .hamburger { display: flex; }
+  .mobile-menu { display: flex; }
+  .section-wrap { padding: 60px 20px; }
+  footer { padding: 48px 20px 32px; }
+  .footer-top { flex-direction: column; }
+  .footer-bottom { flex-direction: column; text-align: center; }
+  .footer-made { text-align: center; }
+}
+
+
+
+  .nav-logo .i, .footer-logo .i, .hero-title .i, .page-hero-title .i, .artist-name-big .i {
+    font-family: 'Inter', sans-serif !important;
+    font-weight: 900 !important;
+    font-style: italic !important;
+    font-size: 0.78em !important;
+    color: var(--red) !important;
+    text-transform: none !important;
+    letter-spacing: 0 !important;
+  }
+
+
+    /* ARTIST HERO */
+    .artist-hero {
+      min-height: 100vh;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      position: relative;
+    }
+    .artist-hero-img {
+      position: relative;
+      overflow: hidden;
+    }
+    .artist-hero-img img {
+      width: 100%; height: 100%;
+      object-fit: cover; object-position: top;
+      display: block;
+      filter: brightness(0.85);
+      transition: transform 0.6s;
+    }
+    .artist-hero-img:hover img { transform: scale(1.03); }
+    .artist-hero-text {
+      background: var(--black);
+      display: flex; flex-direction: column;
+      justify-content: flex-end;
+      padding: 80px 64px;
+      position: relative;
+    }
+    .artist-hero-text::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 4px;
+      background: var(--red);
+    }
+    .artist-eyebrow {
+      font-size: 11px; font-weight: 700; letter-spacing: 4px;
+      text-transform: uppercase; color: var(--red); margin-bottom: 16px;
+    }
+    .artist-hero-name {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(80px, 12vw, 160px);
+      line-height: 0.85; letter-spacing: 1px;
+      color: var(--white); margin-bottom: 20px;
+    }
+    .artist-hero-genre {
+      font-size: 12px; font-weight: 600; letter-spacing: 3px;
+      text-transform: uppercase; color: var(--grey); margin-bottom: 32px;
+    }
+    .artist-hero-bio {
+      font-size: 15px; color: var(--light);
+      line-height: 1.85; max-width: 440px; margin-bottom: 40px;
+    }
+    .artist-hero-links { display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 48px; }
+    .artist-hero-link {
+      display: inline-flex; align-items: center; gap: 8px;
+      color: var(--light); text-decoration: none;
+      font-size: 11px; font-weight: 700; letter-spacing: 2px;
+      text-transform: uppercase; border: 1px solid var(--border);
+      padding: 11px 20px; border-radius: 2px; transition: all 0.2s;
+    }
+    .artist-hero-link:hover { color: var(--white); border-color: var(--white); }
+    .artist-hero-link.spotify:hover { border-color: #1DB954; color: #1DB954; }
+    .artist-hero-link.instagram:hover { border-color: #E1306C; color: #E1306C; }
+    .artist-hero-link.epk { background: var(--red); border-color: var(--red); color: var(--white); }
+    .artist-hero-link.epk:hover { background: #aa0000; border-color: #aa0000; }
+
+    /* STATS BAR */
+    .stats-bar {
+      display: grid; grid-template-columns: repeat(4, 1fr);
+      gap: 2px; background: var(--border);
+      border-top: 1px solid var(--border);
+    }
+    .stat-box {
+      background: var(--dark); padding: 36px 28px; text-align: center;
+    }
+    .stat-num {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(36px, 5vw, 56px);
+      color: var(--white); line-height: 1; margin-bottom: 8px;
+    }
+    .stat-num span { color: var(--red); }
+    .stat-desc {
+      font-size: 10px; color: var(--grey);
+      letter-spacing: 2px; text-transform: uppercase;
+    }
+
+    /* LATEST RELEASE FEATURED */
+    .release-featured {
+      display: grid; grid-template-columns: auto 1fr;
+      gap: 0; background: var(--dark);
+      border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);
+    }
+    .release-cover {
+      width: clamp(240px, 30vw, 400px); aspect-ratio: 1; flex-shrink: 0;
+    }
+    .release-cover img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .release-info {
+      padding: 56px; display: flex; flex-direction: column; justify-content: center;
+    }
+    .release-tag {
+      display: inline-block; background: var(--red);
+      color: var(--white); font-size: 10px; font-weight: 700;
+      letter-spacing: 3px; text-transform: uppercase;
+      padding: 5px 14px; border-radius: 20px; margin-bottom: 24px; width: fit-content;
+    }
+    .release-title {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(36px, 5vw, 64px);
+      line-height: 1; letter-spacing: 1px; color: var(--white); margin-bottom: 12px;
+    }
+    .release-meta { font-size: 12px; color: var(--grey); letter-spacing: 1.5px; text-transform: uppercase; margin-bottom: 28px; }
+    .tracklist { margin-bottom: 32px; }
+    .track {
+      display: flex; align-items: center; gap: 16px;
+      padding: 13px 0; border-bottom: 1px solid var(--border);
+      text-decoration: none; transition: padding-left 0.2s;
+    }
+    .track:last-child { border-bottom: none; }
+    .track:hover { padding-left: 8px; }
+    .track-num { font-size: 12px; color: var(--grey); width: 20px; text-align: center; flex-shrink: 0; }
+    .track-name { font-size: 15px; color: var(--white); flex: 1; }
+    .track-arrow { color: var(--grey); font-size: 14px; transition: color 0.2s, transform 0.2s; }
+    .track:hover .track-arrow { color: var(--red); transform: translateX(4px); }
+
+    /* DISCOGRAPHY GRID */
+    .disc-grid {
+      display: grid; grid-template-columns: repeat(4, 1fr);
+      gap: 2px; background: var(--border);
+    }
+    .disc-card {
+      background: var(--card); text-decoration: none;
+      position: relative; overflow: hidden; transition: background 0.2s;
+    }
+    .disc-card:hover { background: var(--dark); }
+    .disc-img {
+      width: 100%; aspect-ratio: 1; object-fit: cover;
+      display: block; transition: transform 0.5s, filter 0.4s;
+      filter: brightness(0.85);
+    }
+    .disc-card:hover .disc-img { transform: scale(1.05); filter: brightness(0.6); }
+    .disc-overlay {
+      position: absolute; inset: 0; background: rgba(204,0,0,0.1);
+      opacity: 0; transition: opacity 0.3s;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .disc-card:hover .disc-overlay { opacity: 1; }
+    .disc-play {
+      width: 48px; height: 48px; border-radius: 50%;
+      background: var(--red); display: flex; align-items: center; justify-content: center;
+      font-size: 18px; transform: scale(0.8); transition: transform 0.3s;
+    }
+    .disc-card:hover .disc-play { transform: scale(1); }
+    .disc-info { padding: 18px 20px; }
+    .disc-title {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 20px; letter-spacing: 1px; color: var(--white); margin-bottom: 4px;
+    }
+    .disc-meta { font-size: 11px; color: var(--grey); letter-spacing: 1.5px; text-transform: uppercase; }
+
+    /* STUDIO PHOTOS */
+    .studio-grid {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 2px; background: var(--border);
+    }
+    .studio-img { overflow: hidden; }
+    .studio-img img {
+      width: 100%; height: 100%;
+      object-fit: cover; object-position: top;
+      display: block; transition: transform 0.6s;
+      min-height: 400px;
+    }
+    .studio-img:hover img { transform: scale(1.04); }
+
+    /* VIDEO */
+    .video-wrap {
+      position: relative; padding-bottom: 56.25%; height: 0;
+      overflow: hidden; border-radius: 2px; border: 1px solid var(--border);
+    }
+    .video-wrap iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none; }
+
+    /* PRESS */
+    .press-grid {
+      display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px;
+    }
+    .press-card {
+      background: var(--card); border: 1px solid var(--border);
+      border-radius: 3px; padding: 32px;
+      transition: border-color 0.2s, transform 0.2s;
+    }
+    .press-card:hover { border-color: var(--red); transform: translateY(-3px); }
+    .press-quote {
+      font-size: 15px; color: var(--light); line-height: 1.8;
+      font-style: italic; margin-bottom: 20px;
+    }
+    .press-quote::before {
+      content: '"'; color: var(--red); font-size: 32px;
+      font-family: 'Bebas Neue'; display: block; margin-bottom: 8px; font-style: normal;
+    }
+    .press-source {
+      font-size: 11px; font-weight: 700; letter-spacing: 2px;
+      text-transform: uppercase; color: var(--grey); text-decoration: none; transition: color 0.2s;
+    }
+    .press-source:hover { color: var(--white); }
+
+    @media (max-width: 900px) {
+      .artist-hero { grid-template-columns: 1fr; min-height: auto; }
+      .artist-hero-img { min-height: 50vh; }
+      .artist-hero-text { padding: 48px 24px; }
+      .artist-hero-name { font-size: clamp(64px, 18vw, 100px); }
+      .stats-bar { grid-template-columns: repeat(2, 1fr); }
+      .release-featured { grid-template-columns: 1fr; }
+      .release-cover { width: 100%; }
+      .release-info { padding: 36px 24px; }
+      .disc-grid { grid-template-columns: repeat(2, 1fr); }
+      .studio-grid { grid-template-columns: 1fr; }
+      .press-grid { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 480px) {
+      .artist-hero-links { flex-direction: column; }
+      .disc-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+  </style>
+</head>
+<body class="page-wrap">
+
+<nav>
+  <a href="index.html" class="nav-logo">
+    <img src="https://res.cloudinary.com/dvznmnpys/image/upload/q_auto,f_auto,h_72/v1781182639/iDOPE_Logo-BIG-transparant_qlndoy.png" alt="iDOPE" class="nav-logo-img" style="height:36px;width:auto;display:block;">
+  </a>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="music.html">Music</a></li>
+    <li><a href="artists.html" class="active">Artists</a></li>
+    <li><a href="fashion.html">Fashion</a></li>
+    <li><a href="about.html">About</a></li>
+  </ul>
+  <a href="mailto:info@idoperecords.com" class="nav-contact">Contact</a>
+  <button class="hamburger" id="hamburger" aria-label="Open menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+  <a href="index.html" onclick="closeMobile()">Home</a>
+  <a href="music.html" onclick="closeMobile()">Music</a>
+  <a href="artists.html" onclick="closeMobile()">Artists</a>
+  <a href="fashion.html" onclick="closeMobile()">Fashion</a>
+  <a href="about.html" onclick="closeMobile()">About</a>
+  <a href="mailto:info@idoperecords.com" class="mob-contact">Contact</a>
+</div>
+
+<!-- ARTIST HERO -->
+<div class="artist-hero">
+  <div class="artist-hero-img">
+    <img src="https://res.cloudinary.com/dvznmnpys/image/upload/q_auto,f_auto,w_900,c_fill,g_north/v1781183915/Big_Big_Tinz_bkr3jd.jpg" alt="Dantiti" loading="eager">
+  </div>
+  <div class="artist-hero-text">
+    <div class="artist-eyebrow reveal">iDOPE Records · Artist</div>
+    <h1 class="artist-hero-name reveal">Dantiti</h1>
+    <p class="artist-hero-genre reveal">Afrobeats · Afrofusion · R&amp;B · Rap</p>
+    <p class="artist-hero-bio reveal">Nigerian-born, UK-raised. Daniel Ofuzor built his sound from Benin City to Wolverhampton, weaving Afrobeats, Afrofusion, and rap into something entirely his own. Inspired by Notorious B.I.G. as a kid in Nigeria, he carried that passion through Ghana and into the UK — where he founded iDOPE Records in 2017 to own his story from the start.</p>
+    <div class="artist-hero-links reveal">
+      <a href="https://open.spotify.com/artist/4khozhzk76aeDXJamgmutM" target="_blank" class="artist-hero-link spotify">Spotify</a>
+      <a href="https://instagram.com/itzdantiti" target="_blank" class="artist-hero-link instagram">Instagram</a>
+      <a href="https://dantiti.spotglow-studio.com" target="_blank" class="artist-hero-link epk">Full EPK →</a>
+    </div>
+  </div>
+</div>
+
+<!-- STATS BAR -->
+<div class="stats-bar">
+  <div class="stat-box reveal">
+    <div class="stat-num">900<span>+</span></div>
+    <div class="stat-desc">Monthly Listeners</div>
+  </div>
+  <div class="stat-box reveal">
+    <div class="stat-num">20<span>17</span></div>
+    <div class="stat-desc">Founded iDOPE</div>
+  </div>
+  <div class="stat-box reveal">
+    <div class="stat-num">3</div>
+    <div class="stat-desc">Countries</div>
+  </div>
+  <div class="stat-box reveal">
+    <div class="stat-num">5<span>+</span></div>
+    <div class="stat-desc">Years Active</div>
+  </div>
+</div>
+
+<!-- LATEST RELEASE -->
+<div class="release-featured">
+  <div class="release-cover">
+    <img src="https://i.scdn.co/image/ab67616d0000b273d88b625b8d2b9f6a7e45066c" alt="Life Cycle of a Butterfly EP III">
+  </div>
+  <div class="release-info">
+    <span class="release-tag">Latest Release · April 2026</span>
+    <h2 class="release-title reveal">Life Cycle of a<br>Butterfly – EP III</h2>
+    <p class="release-meta">3 Tracks · iDOPE Records · 2026</p>
+    <div class="tracklist">
+      <a href="https://open.spotify.com/track/1DyqUl9pvvSTfYZOW6ssOJ" target="_blank" class="track">
+        <span class="track-num">01</span>
+        <span class="track-name">Body &amp; Soul</span>
+        <span class="track-arrow">→</span>
+      </a>
+      <a href="https://open.spotify.com/track/1fjvEa8u9cZLibm5pJmcSa" target="_blank" class="track">
+        <span class="track-num">02</span>
+        <span class="track-name">Money Long</span>
+        <span class="track-arrow">→</span>
+      </a>
+      <a href="https://open.spotify.com/track/1Z5pvbJXcZzVpqVTlQdqNd" target="_blank" class="track">
+        <span class="track-num">03</span>
+        <span class="track-name">Chop Life</span>
+        <span class="track-arrow">→</span>
+      </a>
+    </div>
+    <iframe src="https://open.spotify.com/embed/album/7G9DQaPD3LBaV1cJV72Dnv?utm_source=generator&theme=0" width="100%" height="80" style="border:none;border-radius:3px;display:block;" loading="lazy"></iframe>
+  </div>
+</div>
+
+<!-- DISCOGRAPHY -->
+<div style="border-top:1px solid var(--border);">
+  <div class="section-wrap" style="padding-bottom:36px;">
+    <span class="section-label reveal">Discography</span>
+    <div style="display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:16px;">
+      <h2 class="section-title reveal">All Releases</h2>
+      <a href="https://open.spotify.com/artist/4khozhzk76aeDXJamgmutM" target="_blank" class="btn-outline reveal" style="font-size:11px;padding:10px 22px;">View on Spotify →</a>
+    </div>
+  </div>
+  <div class="disc-grid">
+    <a href="https://open.spotify.com/album/7G9DQaPD3LBaV1cJV72Dnv" target="_blank" class="disc-card reveal">
+      <img class="disc-img" src="https://i.scdn.co/image/ab67616d00001e02d88b625b8d2b9f6a7e45066c" alt="EP III">
+      <div class="disc-overlay"><div class="disc-play">▶</div></div>
+      <div class="disc-info">
+        <div class="disc-title">Life Cycle – EP III</div>
+        <div class="disc-meta">EP · 2026</div>
+      </div>
+    </a>
+    <a href="https://open.spotify.com/album/7nBeYYT0pMoS7bUXQS3vVq" target="_blank" class="disc-card reveal">
+      <img class="disc-img" src="https://i.scdn.co/image/ab67616d00001e02e7984dded845fa1eeef1bd15" alt="Money Long">
+      <div class="disc-overlay"><div class="disc-play">▶</div></div>
+      <div class="disc-info">
+        <div class="disc-title">Money Long</div>
+        <div class="disc-meta">Single · 2026</div>
+      </div>
+    </a>
+    <a href="https://open.spotify.com/album/4ARpbk8ojSLd2O7EtKaOYZ" target="_blank" class="disc-card reveal">
+      <img class="disc-img" src="https://i.scdn.co/image/ab67616d00001e026c6ee8f9bf6a2ca8b50f3e76" alt="Big Big Tinz">
+      <div class="disc-overlay"><div class="disc-play">▶</div></div>
+      <div class="disc-info">
+        <div class="disc-title">Big Big Tinz</div>
+        <div class="disc-meta">Single · 2025</div>
+      </div>
+    </a>
+    <a href="https://open.spotify.com/album/7a7FMXS4lWXMPiu5dmbmG6" target="_blank" class="disc-card reveal">
+      <img class="disc-img" src="https://i.scdn.co/image/ab67616d00001e026c6ee8f9bf6a2ca8b50f3e76" alt="EP II" onerror="this.style.background='#222';this.removeAttribute('src')">
+      <div class="disc-overlay"><div class="disc-play">▶</div></div>
+      <div class="disc-info">
+        <div class="disc-title">Life Cycle – EP II</div>
+        <div class="disc-meta">EP · 2025</div>
+      </div>
+    </a>
+  </div>
+</div>
+
+<!-- VIDEO -->
+<div style="border-top:1px solid var(--border);background:var(--dark);">
+  <div class="section-wrap">
+    <span class="section-label reveal">Watch</span>
+    <h2 class="section-title reveal" style="margin-bottom:36px;">Latest Video</h2>
+    <div class="video-wrap reveal">
+      <iframe src="https://www.youtube.com/embed/AY9xTV3b-Uw" title="Dantiti - Big Big Tinz (Official Video)" allowfullscreen loading="lazy"></iframe>
+    </div>
+    <div style="margin-top:20px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px;" class="reveal">
+      <div>
+        <div style="font-family:'Bebas Neue';font-size:26px;letter-spacing:1px;">Big Big Tinz — Official Video</div>
+        <div style="font-size:13px;color:var(--grey);margin-top:4px;">Dantiti · via The Pit London · 2025</div>
+      </div>
+      <a href="https://www.youtube.com/@idoperecords" target="_blank" class="btn-outline" style="font-size:11px;padding:10px 22px;">More on YouTube →</a>
+    </div>
+  </div>
+</div>
+
+<!-- STUDIO PHOTOS -->
+<div style="border-top:1px solid var(--border);">
+  <div class="section-wrap" style="padding-bottom:36px;">
+    <span class="section-label reveal">Behind The Music</span>
+    <h2 class="section-title reveal">In The Studio</h2>
+  </div>
+  <div class="studio-grid">
+    <div class="studio-img">
+      <img src="https://res.cloudinary.com/dvznmnpys/image/upload/q_auto,f_auto,w_900/v1781184248/DANTITI_BIRMS-STUDIO_1_Small_paiugx.jpg" alt="Dantiti in the studio" loading="lazy">
+    </div>
+    <div class="studio-img">
+      <img src="https://res.cloudinary.com/dvznmnpys/image/upload/q_auto,f_auto,w_900/v1781184248/DANTITI_BIRMS-STUDIO_2_Small_zyddtx.jpg" alt="Dantiti in the studio" loading="lazy">
+    </div>
+  </div>
+</div>
+
+<!-- PRESS -->
+<div style="border-top:1px solid var(--border);background:var(--dark);">
+  <div class="section-wrap">
+    <span class="section-label reveal">Press</span>
+    <h2 class="section-title reveal" style="margin-bottom:36px;">What They're Saying</h2>
+    <div class="press-grid">
+      <div class="press-card reveal">
+        <p class="press-quote">A rising creative force with the versatility and vision to help shape Afrobeats' evolving future.</p>
+        <a href="https://www.thepitldn.com/pitnews/big-big-tinz" target="_blank" class="press-source">The Pit London →</a>
+      </div>
+      <div class="press-card reveal">
+        <p class="press-quote">Immediately engaging yet layered with personality and intention. An essential listen for fans of forward-thinking Afrobeats.</p>
+        <a href="https://www.flexmusicblog.com/post/dantiti-releases-new-single-big-big-tinz" target="_blank" class="press-source">Flex Music Blog →</a>
+      </div>
+      <div class="press-card reveal">
+        <p class="press-quote">A knack for transformation, reshaping external material into something unmistakably his own.</p>
+        <a href="https://www.theothersidereviews.com/a-chat-with-dantiti-18-12-25/" target="_blank" class="press-source">The Other Side Reviews →</a>
+      </div>
+      <div class="press-card reveal">
+        <p class="press-quote">Intimate enough to melt into your headphones, yet big enough to light up any dance floor from Lagos to London.</p>
+        <a href="https://www.thisishiphophq.com.ng" target="_blank" class="press-source">This Is Hip Hop HQ →</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- CTA -->
+<div style="border-top:1px solid var(--border);text-align:center;padding:80px 40px;background:var(--black);">
+  <span class="section-label reveal" style="display:block;text-align:center;">iDOPE Records</span>
+  <h2 style="font-family:'Bebas Neue';font-size:clamp(40px,6vw,68px);color:var(--white);margin-bottom:16px;" class="reveal">Hear The Music</h2>
+  <p style="font-size:14px;color:var(--grey);margin-bottom:40px;max-width:400px;margin-left:auto;margin-right:auto;" class="reveal">Stream Dantiti on all major platforms or visit the full EPK for press and booking.</p>
+  <div style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap;" class="reveal">
+    <a href="https://open.spotify.com/artist/4khozhzk76aeDXJamgmutM" target="_blank" class="btn-primary">Stream on Spotify</a>
+    <a href="https://dantiti.spotglow-studio.com" target="_blank" class="btn-outline">Full EPK</a>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div>
+        <a href="index.html" class="footer-logo">
+          <img src="https://res.cloudinary.com/dvznmnpys/image/upload/q_auto,f_auto,h_80/v1781182639/iDOPE_Logo-BIG-transparant_qlndoy.png" alt="iDOPE" style="height:56px;width:auto;display:block;">
+        </a>
+        <p class="footer-tagline">More than a record label. A movement built on music, mental health, and independence.</p>
+      </div>
+      <div class="footer-nav">
+        <div class="footer-col">
+          <h4>Music</h4>
+          <a href="music.html">New Releases</a>
+          <a href="https://open.spotify.com/artist/4khozhzk76aeDXJamgmutM" target="_blank">Spotify</a>
+          <a href="https://www.youtube.com/@idoperecords" target="_blank">YouTube</a>
+        </div>
+        <div class="footer-col">
+          <h4>Artists</h4>
+          <a href="artists.html">All Artists</a>
+          <a href="dantiti.html">Dantiti</a>
+          <a href="https://dantiti.spotglow-studio.com" target="_blank">Dantiti EPK</a>
+        </div>
+        <div class="footer-col">
+          <h4>Brand</h4>
+          <a href="fashion.html">Fashion</a>
+          <a href="https://idopeshop.com" target="_blank">iDOPE Shop</a>
+        </div>
+        <div class="footer-col">
+          <h4>Contact</h4>
+          <a href="about.html">About</a>
+          <a href="mailto:info@idoperecords.com">info@idoperecords.com</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p class="footer-copy">© 2026 iDOPE Records. All rights reserved.</p>
+      <p class="footer-made">Made by <a href="https://spotglow-studio.com" target="_blank">Spotglow Studio</a></p>
+    </div>
+  </div>
+</footer>
+
+<script>
+  const hamburger = document.getElementById('hamburger');
+  const mobileMenu = document.getElementById('mobileMenu');
+  hamburger.addEventListener('click', () => {
+    const open = hamburger.classList.toggle('open');
+    if (open) { mobileMenu.style.display = 'flex'; requestAnimationFrame(() => mobileMenu.classList.add('open')); }
+    else { mobileMenu.classList.remove('open'); setTimeout(() => mobileMenu.style.display = 'none', 350); }
+  });
+  function closeMobile() {
+    hamburger.classList.remove('open'); mobileMenu.classList.remove('open');
+    setTimeout(() => mobileMenu.style.display = 'none', 350);
+  }
+  const observer = new IntersectionObserver(e => e.forEach(el => { if (el.isIntersecting) el.target.classList.add('visible'); }), { threshold: 0.08 });
+  document.querySelectorAll('.reveal').forEach((el, i) => { el.style.transitionDelay = (i % 4) * 0.1 + 's'; observer.observe(el); });
+</script>
+</body>
+</html>
