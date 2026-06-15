@@ -3,10 +3,10 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Artists | iDOPE</title>
+  <title>Privacy Policy | iDOPE</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600;700;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <style>
     .footer-social { display: flex; gap: 14px; align-items: center; }
     .footer-social a {
@@ -45,7 +45,6 @@
       .mobile-menu { padding: 20px 24px; gap: 14px; }
       .mobile-menu a { font-size: 22px; }
     }
-
 
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -305,86 +304,132 @@ footer {
   .footer-made { text-align: center; }
 }
 
-
-
+</style>
+  <style>
     .page-hero {
-      min-height: 38vh; display: flex; flex-direction: column;
+      min-height: 65vh; display: flex; flex-direction: column;
       justify-content: flex-end; padding: 120px 48px 64px;
       position: relative; overflow: hidden;
       border-bottom: 1px solid var(--border);
     }
     .page-hero-bg {
       position: absolute; inset: 0;
-      background-image: url('https://res.cloudinary.com/dvznmnpys/image/upload/q_auto,f_auto,w_1400,c_fill,g_north/v1781184248/DANTITI_BIRMS-STUDIO_1_Small_paiugx.jpg');
-      background-size: cover; background-position: top center;
-      filter: brightness(0.2);
+      background-image: url('https://res.cloudinary.com/dvznmnpys/image/upload/q_auto,f_auto,w_1400/v1781096310/iDOPE-logo_on-product_White_t6hdrs.png');
+      background-size: cover; background-position: center;
+      filter: brightness(0.12);
     }
     .page-hero-content { position: relative; z-index: 2; }
     .page-hero-label { font-size: 11px; font-weight: 700; letter-spacing: 4px; text-transform: uppercase; color: var(--red); margin-bottom: 16px; display: block; }
     .page-hero-title { font-family: 'Bebas Neue', sans-serif; font-size: clamp(72px, 12vw, 140px); line-height: 0.88; color: var(--white); }
 
-    .artist-card {
+    /* MISSION */
+    .mission-split {
       display: grid; grid-template-columns: 1fr 1fr;
       gap: 2px; background: var(--border);
       border-bottom: 1px solid var(--border);
-      text-decoration: none;
     }
-    .artist-card-img { position: relative; overflow: hidden; min-height: 420px; }
-    .artist-card-img img {
-      width: 100%; height: 100%;
-      object-fit: cover; object-position: top;
-      display: block; transition: transform 0.6s, filter 0.4s;
-      filter: brightness(0.8);
-    }
-    .artist-card-text:hover ~ .artist-card-img img,
-    .artist-card:has(.artist-card-link:hover) .artist-card-img img { transform: scale(1.04); filter: brightness(0.6); }
-    .artist-card-link { cursor: pointer; }
-    .artist-card-link:hover { color: var(--red); gap: 16px; }
-    .artist-card-name { transition: color 0.2s; }
-    .artist-card:has(.artist-card-link:hover) .artist-card-name { color: var(--red); }
-    .artist-card-text {
-      background: var(--dark); display: flex;
-      flex-direction: column; justify-content: center; padding: 72px 64px;
-    }
-    .artist-num { font-size: 11px; font-weight: 700; letter-spacing: 4px; text-transform: uppercase; color: var(--red); margin-bottom: 16px; display: block; }
-    .artist-card-name {
-      font-family: 'Bebas Neue', sans-serif;
-      font-size: clamp(64px, 9vw, 110px);
-      line-height: 0.88; letter-spacing: 2px;
-      color: var(--white); margin-bottom: 16px;
-      transition: color 0.2s;
-    }
-    .artist-card:hover .artist-card-name { color: var(--red); }
-    .artist-card-genre { font-size: 12px; font-weight: 600; letter-spacing: 3px; text-transform: uppercase; color: var(--grey); margin-bottom: 24px; }
-    .artist-card-bio { font-size: 15px; color: var(--light); line-height: 1.8; margin-bottom: 36px; max-width: 400px; }
-    .artist-card-link {
-      display: inline-flex; align-items: center; gap: 8px;
-      color: var(--white); font-size: 12px; font-weight: 700;
-      letter-spacing: 2px; text-transform: uppercase;
-      border-bottom: 2px solid var(--red); padding-bottom: 4px;
-      transition: gap 0.2s, color 0.2s;
+    .mission-text { padding: 80px 64px; background: var(--dark); }
+    .mission-img { overflow: hidden; }
+    .mission-img img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.6s; }
+    .mission-img:hover img { transform: scale(1.03); }
+    .mission-intro { font-size: 17px; color: var(--light); line-height: 1.9; margin-bottom: 28px; }
+    .mission-quote {
+      font-size: 15px; color: var(--grey); line-height: 1.9;
+      border-left: 3px solid var(--red); padding-left: 24px; margin-bottom: 40px;
     }
 
+    /* PILLARS */
+    .pillars-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 2px; background: var(--border); }
+    .pillar {
+      background: var(--card); padding: 40px 32px;
+      transition: background 0.2s;
+    }
+    .pillar:hover { background: var(--dark); }
+    .pillar-icon { font-size: 32px; display: block; margin-bottom: 16px; }
+    .pillar-title { font-family: 'Bebas Neue', sans-serif; font-size: 26px; letter-spacing: 1px; color: var(--white); margin-bottom: 12px; }
+    .pillar-text { font-size: 13px; color: var(--grey); line-height: 1.7; }
+
+    /* STATS */
+    .stats-row {
+      display: grid; grid-template-columns: repeat(4, 1fr);
+      gap: 2px; background: var(--border);
+      border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);
+    }
+    .stat-box { background: var(--dark); padding: 48px 36px; text-align: center; }
+    .stat-number { font-family: 'Bebas Neue', sans-serif; font-size: clamp(52px, 6vw, 80px); color: var(--white); line-height: 1; margin-bottom: 8px; }
+    .stat-number span { color: var(--red); }
+    .stat-desc { font-size: 12px; color: var(--grey); letter-spacing: 2px; text-transform: uppercase; }
+
+    /* SERVICES */
+    .services-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
+    .service-card {
+      background: var(--card); border: 1px solid var(--border);
+      border-radius: 3px; padding: 36px; transition: border-color 0.2s, transform 0.2s;
+    }
+    .service-card:hover { border-color: var(--red); transform: translateY(-3px); }
+    .service-icon { font-size: 28px; margin-bottom: 16px; display: block; }
+    .service-title { font-family: 'Bebas Neue', sans-serif; font-size: 26px; letter-spacing: 1px; color: var(--white); margin-bottom: 12px; }
+    .service-text { font-size: 14px; color: var(--grey); line-height: 1.7; }
+
+    /* CONTACT */
+    .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2px; background: var(--border); }
+    .contact-block { background: var(--card); padding: 52px; }
+    .contact-label { font-size: 10px; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; color: var(--grey); margin-bottom: 8px; display: block; }
+    .contact-value { font-family: 'Bebas Neue', sans-serif; font-size: 24px; letter-spacing: 1px; color: var(--white); text-decoration: none; transition: color 0.2s; display: block; }
+    .contact-value:hover { color: var(--red); }
+    .contact-address { font-size: 14px; color: var(--light); line-height: 1.7; margin-top: 4px; }
+
+    /* SOCIAL ROW */
+    .social-row { display: flex; gap: 16px; flex-wrap: wrap; justify-content: center; padding: 64px 40px; border-top: 1px solid var(--border); }
+    .social-btn {
+      display: flex; align-items: center; gap: 10px;
+      color: var(--light); text-decoration: none; font-size: 12px;
+      font-weight: 600; letter-spacing: 2px; text-transform: uppercase;
+      border: 1px solid var(--border); padding: 14px 28px;
+      border-radius: 2px; transition: all 0.25s; min-width: 160px; justify-content: center;
+    }
+    .social-btn:hover { border-color: var(--white); color: var(--white); transform: translateY(-3px); }
+    .social-btn.ig:hover { border-color: #E1306C; color: #E1306C; }
+    .social-btn.yt:hover { border-color: #FF0000; color: #FF0000; }
+    .social-btn.sp:hover { border-color: #1DB954; color: #1DB954; }
+
     @media (max-width: 900px) {
-      .artist-card { grid-template-columns: 1fr; }
-      .artist-card-img { min-height: 360px; }
-      .artist-card-text { padding: 48px 24px; }
+      .mission-split { grid-template-columns: 1fr; }
+      .mission-text { padding: 52px 24px; }
+      .pillars-grid { grid-template-columns: repeat(2, 1fr); }
+      .stats-row { grid-template-columns: repeat(2, 1fr); }
+      .services-grid { grid-template-columns: 1fr; }
+      .contact-grid { grid-template-columns: 1fr; }
       .page-hero { padding: 100px 24px 48px; }
     }
+  </style>
+  <style>
+  .nav-logo-img { height: 36px; width: auto; display: block; }
+  nav { height: 76px; }
+  .page-wrap { padding-top: 76px; }
+  .mobile-menu { top: 76px; }
+  .nav-logo .i, .footer-logo .i, .hero-title .i, .page-hero-title .i, .artist-name-big .i {
+    font-family: 'Inter', sans-serif !important;
+    font-weight: 900 !important;
+    font-style: italic !important;
+    font-size: 0.78em !important;
+    color: var(--red) !important;
+    text-transform: none !important;
+    letter-spacing: 0 !important;
+  }
   </style>
 </head>
 <body class="page-wrap">
 
 <nav>
   <a href="index.html" class="nav-logo">
-    <img src="https://res.cloudinary.com/dvznmnpys/image/upload/q_auto,f_auto,h_72/v1781182639/iDOPE_Logo-BIG-transparant_qlndoy.png" alt="iDOPE" style="height:36px;width:auto;display:block;">
+    <img src="https://res.cloudinary.com/dvznmnpys/image/upload/q_auto,f_auto,h_72/v1781182639/iDOPE_Logo-BIG-transparant_qlndoy.png" alt="iDOPE" class="nav-logo-img">
   </a>
   <ul class="nav-links">
-    <li><a href="index.html">Home</a></li>
-    <li><a href="music.html">Music</a></li>
-    <li><a href="artists.html" class="active">Artists</a></li>
-    <li><a href="fashion.html">Merch</a></li>
-    <li><a href="about.html">About</a></li>
+    <li><a href="index.html" >Home</a></li>
+    <li><a href="music.html" >Music</a></li>
+    <li><a href="fashion.html" >Merch</a></li>
+    <li><a href="artists.html">Artists</a></li><li><a href="about.html" >About</a></li>
   </ul>
   <a href="mailto:info@idoperecords.com" class="nav-contact">Contact</a>
   <button class="hamburger" id="hamburger" aria-label="Open menu">
@@ -394,31 +439,42 @@ footer {
 <div class="mobile-menu" id="mobileMenu">
   <a href="index.html" onclick="closeMobile()">Home</a>
   <a href="music.html" onclick="closeMobile()">Music</a>
-  <a href="artists.html" onclick="closeMobile()">Artists</a>
   <a href="fashion.html" onclick="closeMobile()">Merch</a>
+  <a href="artists.html" onclick="closeMobile()">Artists</a>
   <a href="about.html" onclick="closeMobile()">About</a>
   <a href="mailto:info@idoperecords.com" class="mob-contact">Contact</a>
 </div>
 
-<div class="page-hero">
-  <div class="page-hero-bg"></div>
+<!-- PAGE HERO -->
+<div class="page-hero" style="min-height: 36vh;">
+  <div class="page-hero-bg" style="background: var(--dark); filter: none;"></div>
   <div class="page-hero-content">
-    <span class="page-hero-label">iDOPE</span>
-    <h1 class="page-hero-title">Artists</h1>
+    <span class="page-hero-label">Legal</span>
+    <h1 class="page-hero-title">Privacy<br>Policy</h1>
   </div>
 </div>
 
-<div class="artist-card">
-  <div class="artist-card-img">
-    <img src="https://res.cloudinary.com/dvznmnpys/image/upload/q_auto,f_auto,w_900,c_fill,g_north/v1781184248/DANTITI_BIRMS-STUDIO_2_Small_zyddtx.jpg" alt="Dantiti" loading="lazy">
-  </div>
-  <div class="artist-card-text">
-    <span class="artist-num">Artist 01</span>
-    <div class="artist-card-name">Dantiti</div>
-    <p class="artist-card-genre">Afrobeats · Afrofusion · R&amp;B · Rap</p>
-    <p class="artist-card-bio">Dantiti built his sound from Nigeria to Ghana and to the UK, blending Afrobeats, Afrofusion, and Rap into something entirely his own. He founded iDOPE in 2017 to own his story from the start.</p>
-    <a href="dantiti.html" class="artist-card-link">View Artist →</a>
-  </div>
+<!-- CONTENT -->
+<div class="section-wrap" style="max-width: 760px;">
+  <p style="font-size:13px;color:var(--grey);margin-bottom:40px;">Last updated: June 2026</p>
+
+  <h2 style="font-family:'Bebas Neue';font-size:28px;letter-spacing:1px;color:var(--white);margin-bottom:16px;">Who We Are</h2>
+  <p style="font-size:15px;color:var(--light);line-height:1.85;margin-bottom:32px;">iDOPE is a record label and lifestyle brand based in London, United Kingdom. This website is operated by iDOPE. For any questions about this policy or how your data is handled, contact us at <a href="mailto:info@idoperecords.com" style="color:var(--red);text-decoration:underline;">info@idoperecords.com</a>.</p>
+
+  <h2 style="font-family:'Bebas Neue';font-size:28px;letter-spacing:1px;color:var(--white);margin-bottom:16px;">Information We Collect</h2>
+  <p style="font-size:15px;color:var(--light);line-height:1.85;margin-bottom:32px;">When you contact us by email, we receive the information you provide directly, such as your name, email address, and the contents of your message. We do not use cookies or tracking scripts that collect personal data on this site beyond standard, anonymised analytics that help us understand how the site is used.</p>
+
+  <h2 style="font-family:'Bebas Neue';font-size:28px;letter-spacing:1px;color:var(--white);margin-bottom:16px;">How We Use Your Information</h2>
+  <p style="font-size:15px;color:var(--light);line-height:1.85;margin-bottom:32px;">Any information you share with us is used solely to respond to your enquiry, manage bookings, press requests, or business correspondence. We do not sell, rent, or share your personal information with third parties for marketing purposes.</p>
+
+  <h2 style="font-family:'Bebas Neue';font-size:28px;letter-spacing:1px;color:var(--white);margin-bottom:16px;">Third-Party Links</h2>
+  <p style="font-size:15px;color:var(--light);line-height:1.85;margin-bottom:32px;">This site links to third-party platforms such as Spotify, YouTube, Instagram, and our merch store. Once you leave our site, your data is subject to the privacy policy of that third party. We encourage you to review their policies separately.</p>
+
+  <h2 style="font-family:'Bebas Neue';font-size:28px;letter-spacing:1px;color:var(--white);margin-bottom:16px;">Your Rights</h2>
+  <p style="font-size:15px;color:var(--light);line-height:1.85;margin-bottom:32px;">You can request access to, correction of, or deletion of any personal information we hold about you at any time by emailing <a href="mailto:info@idoperecords.com" style="color:var(--red);text-decoration:underline;">info@idoperecords.com</a>.</p>
+
+  <h2 style="font-family:'Bebas Neue';font-size:28px;letter-spacing:1px;color:var(--white);margin-bottom:16px;">Changes To This Policy</h2>
+  <p style="font-size:15px;color:var(--light);line-height:1.85;margin-bottom:32px;">We may update this policy from time to time. Any changes will be posted on this page with an updated revision date.</p>
 </div>
 
 <footer>
@@ -438,19 +494,15 @@ footer {
           <a href="https://www.youtube.com/@idoperecords" target="_blank">YouTube</a>
         </div>
         <div class="footer-col">
-          <h4>Artists</h4>
-          <a href="artists.html">All Artists</a>
-          <a href="dantiti.html">Dantiti</a>
-        </div>
-        <div class="footer-col">
           <h4>Brand</h4>
           <a href="fashion.html">Merch</a>
           <a href="https://idopeshop.com" target="_blank">iDOPE Shop</a>
         </div>
         <div class="footer-col">
-          <h4>Contact</h4>
+          <h4>Info</h4>
           <a href="about.html">About</a>
-          <a href="mailto:info@idoperecords.com">info@idoperecords.com</a>
+          <a href="mailto:info@idoperecords.com">Contact</a>
+          <a href="privacy.html">Privacy Policy</a>
         </div>
       </div>
     </div>

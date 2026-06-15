@@ -3,11 +3,49 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>About — iDOPE</title>
+  <title>About | iDOPE</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <style>
+    .footer-social { display: flex; gap: 14px; align-items: center; }
+    .footer-social a {
+      display: flex; align-items: center; justify-content: center;
+      width: 36px; height: 36px; border: 1px solid var(--border);
+      border-radius: 50%; color: var(--grey); transition: all 0.2s;
+    }
+    .footer-social a:hover { color: var(--white); border-color: var(--white); transform: translateY(-2px); }
+    .footer-social a.ig:hover { border-color: #E1306C; color: #E1306C; }
+    .footer-social a.yt:hover { border-color: #FF0000; color: #FF0000; }
+    .footer-social a.sp:hover { border-color: #1DB954; color: #1DB954; }
+
+    /* GLOBAL LINK RESET — no blue/underline on custom link blocks */
+    a { text-decoration: none; color: inherit; -webkit-tap-highlight-color: transparent; }
+
+    /* NAV — auto hide on scroll down, show on scroll up */
+    nav {
+      transition: transform 0.3s ease;
+    }
+    nav.nav-hidden {
+      transform: translateY(-100%);
+    }
+
+    /* Touch devices: always show hover-overlays so first tap navigates correctly */
+    @media (hover: none) {
+      .product-overlay {
+        opacity: 1 !important;
+        background: rgba(0,0,0,0.55) !important;
+      }
+      .disc-overlay, .release-card-overlay, .cat-color {
+        opacity: 0.55 !important;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .mobile-menu { padding: 20px 24px; gap: 14px; }
+      .mobile-menu a { font-size: 22px; }
+    }
+
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
 :root {
@@ -390,7 +428,7 @@ footer {
   <ul class="nav-links">
     <li><a href="index.html" >Home</a></li>
     <li><a href="music.html" >Music</a></li>
-    <li><a href="fashion.html" >Fashion</a></li>
+    <li><a href="fashion.html" >Merch</a></li>
     <li><a href="artists.html">Artists</a></li><li><a href="about.html" class="active">About</a></li>
   </ul>
   <a href="mailto:info@idoperecords.com" class="nav-contact">Contact</a>
@@ -401,7 +439,7 @@ footer {
 <div class="mobile-menu" id="mobileMenu">
   <a href="index.html" onclick="closeMobile()">Home</a>
   <a href="music.html" onclick="closeMobile()">Music</a>
-  <a href="fashion.html" onclick="closeMobile()">Fashion</a>
+  <a href="fashion.html" onclick="closeMobile()">Merch</a>
   <a href="artists.html" onclick="closeMobile()">Artists</a>
   <a href="about.html" onclick="closeMobile()">About</a>
   <a href="mailto:info@idoperecords.com" class="mob-contact">Contact</a>
@@ -411,7 +449,7 @@ footer {
 <div class="page-hero">
   <div class="page-hero-bg"></div>
   <div class="page-hero-content">
-    <span class="page-hero-label">Est. London · 2017</span>
+    <span class="page-hero-label">From Lagos to London &bull; EST. 2017</span>
     <h1 class="page-hero-title">About<br><img src="https://res.cloudinary.com/dvznmnpys/image/upload/q_auto,f_auto,h_120/v1781182639/iDOPE_Logo-BIG-transparant_qlndoy.png" alt="iDOPE" style="height:clamp(60px,8vw,100px);width:auto;display:inline-block;vertical-align:middle;"></h1>
   </div>
 </div>
@@ -421,7 +459,7 @@ footer {
   <div class="mission-text">
     <span class="section-label reveal">Our Story</span>
     <h2 class="section-title reveal" style="margin-bottom:32px;">More Than a<br>Record Label</h2>
-    <p class="mission-intro reveal">iDOPE Records is a creative hub founded by Daniel Ofuzor (Dantiti) in 2017, with a passion for music and mental wellness. We amplify bold voices, fresh sounds, and meaningful connections — aiming to reshape entertainment one beat at a time.</p>
+    <p class="mission-intro reveal">iDOPE is a creative hub founded by Daniel Ofuzor (Dantiti) in 2017, with a passion for music and mental wellness. We amplify bold voices, fresh sounds, and meaningful connections, aiming to reshape entertainment one beat at a time.</p>
     <p class="mission-quote reveal">We aim to empower artists with innovative solutions, promote mental health, foster a culture where creativity and every voice are valued, and uphold ethics, sustainability, and social impact.</p>
     <a href="music.html" class="btn-primary reveal">Hear The Music</a>
   </div>
@@ -465,17 +503,17 @@ footer {
     <div class="pillar reveal">
       <span class="pillar-icon">🧠</span>
       <div class="pillar-title">Mental Health</div>
-      <p class="pillar-text">Bringing real awareness to mental wellness through powerful music and community programs. It's not background — it's the mission.</p>
+      <p class="pillar-text">Bringing real awareness to mental wellness through powerful music and community programs. It's not just background, it's the mission.</p>
     </div>
     <div class="pillar reveal">
       <span class="pillar-icon">🌍</span>
       <div class="pillar-title">Global Reach</div>
-      <p class="pillar-text">Three countries, one sound. From Benin City to Wolverhampton to London — connecting cultures and building bridges through music.</p>
+      <p class="pillar-text">Three countries, one sound. From Benin City to Wolverhampton to London, connecting cultures and building bridges through music.</p>
     </div>
     <div class="pillar reveal">
       <span class="pillar-icon">✊</span>
       <div class="pillar-title">Ethics & Impact</div>
-      <p class="pillar-text">Upholding ethics, sustainability, and social impact in every decision — from the studio to the supply chain.</p>
+      <p class="pillar-text">Upholding ethics, sustainability, and social impact in every decision, from the studio to the supply chain.</p>
     </div>
   </div>
 </div>
@@ -489,7 +527,7 @@ footer {
       <div class="service-card reveal">
         <span class="service-icon">🎙️</span>
         <div class="service-title">Artist Development</div>
-        <p class="service-text">From raw talent to fully formed artist — we support musicians at every stage. Music, marketing, and entrepreneurial expertise under one roof.</p>
+        <p class="service-text">From raw talent to fully formed artist, we support musicians at every stage. Music, marketing, and entrepreneurial expertise under one roof.</p>
       </div>
       <div class="service-card reveal">
         <span class="service-icon">🎛️</span>
@@ -499,12 +537,12 @@ footer {
       <div class="service-card reveal">
         <span class="service-icon">📣</span>
         <div class="service-title">Marketing & Promotion</div>
-        <p class="service-text">From DSP strategy to social media — we get your music in front of the right ears, globally.</p>
+        <p class="service-text">From DSP strategy to social media, we get your music in front of the right ears, globally.</p>
       </div>
       <div class="service-card reveal">
         <span class="service-icon">👕</span>
         <div class="service-title">iDOPE Brand</div>
-        <p class="service-text">The brand extends the label's culture into fashion — seasonal, authenticated streetwear for people who live the movement.</p>
+        <p class="service-text">The brand extends the label's culture into merch, seasonal, authenticated streetwear for people who live the movement.</p>
       </div>
     </div>
   </div>
@@ -527,7 +565,7 @@ footer {
     </div>
     <div class="contact-block reveal" style="grid-column: 1 / -1;">
       <span class="contact-label">Address</span>
-      <span class="contact-value" style="pointer-events:none;">iDOPE Records</span>
+      <span class="contact-value" style="pointer-events:none;">iDOPE</span>
       <p class="contact-address">Suite G04, 1 Quality Court, Chancery Lane, London, England, WC2A 1HR</p>
     </div>
   </div>
@@ -572,21 +610,35 @@ footer {
         </div>
         <div class="footer-col">
           <h4>Brand</h4>
-          <a href="fashion.html">Fashion</a>
+          <a href="fashion.html">Merch</a>
           <a href="https://idopeshop.com" target="_blank">iDOPE Shop</a>
         </div>
         <div class="footer-col">
           <h4>Info</h4>
           <a href="about.html">About</a>
           <a href="mailto:info@idoperecords.com">Contact</a>
-          <a href="https://idoperecords.com/privacy-policy/" target="_blank">Privacy Policy</a>
+          <a href="privacy.html">Privacy Policy</a>
         </div>
       </div>
     </div>
     <div class="footer-bottom">
-      <p class="footer-copy">© 2026 iDOPE Records. All rights reserved.</p>
-      <p class="footer-made">Made by <a href="https://spotglow-studio.com" target="_blank">Spotglow Studio</a></p>
-    </div>
+      <p class="footer-copy">© 2026 iDOPE. All rights reserved.</p>
+      <div class="footer-social">
+        <a href="https://instagram.com/idoperecords" target="_blank" class="ig" aria-label="Instagram">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+        </a>
+        <a href="https://www.youtube.com/@idoperecords" target="_blank" class="yt" aria-label="YouTube">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M23.495 6.205a3.007 3.007 0 0 0-2.088-2.088c-1.87-.501-9.396-.501-9.396-.501s-7.507-.01-9.396.501A3.007 3.007 0 0 0 .527 6.205a31.247 31.247 0 0 0-.522 5.805 31.247 31.247 0 0 0 .522 5.783 3.007 3.007 0 0 0 2.088 2.088c1.868.502 9.396.502 9.396.502s7.506 0 9.396-.502a3.007 3.007 0 0 0 2.088-2.088 31.247 31.247 0 0 0 .5-5.783 31.247 31.247 0 0 0-.5-5.805zM9.609 15.601V8.408l6.264 3.602z"/></svg>
+        </a>
+        <a href="https://open.spotify.com/artist/4khozhzk76aeDXJamgmutM" target="_blank" class="sp" aria-label="Spotify">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.521 17.34c-.24.359-.66.48-1.021.24-2.82-1.74-6.36-2.101-10.561-1.141-.418.122-.779-.179-.899-.539-.12-.421.18-.78.54-.9 4.56-1.021 8.52-.6 11.64 1.32.42.18.479.659.301 1.02zm1.44-3.3c-.301.42-.841.6-1.262.3-3.239-1.98-8.159-2.58-11.939-1.38-.479.12-1.02-.12-1.14-.6-.12-.48.12-1.021.6-1.141C9.6 9.9 15 10.561 18.72 12.84c.361.181.54.78.241 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.301c-.6.179-1.2-.181-1.38-.721-.18-.601.18-1.2.72-1.381 4.26-1.26 11.28-1.02 15.721 1.621.539.3.719 1.02.419 1.56-.299.421-1.02.599-1.559.3z"/></svg>
+        </a>
+        <a href="mailto:info@idoperecords.com" aria-label="Email">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        </a>
+      </div>
+
+</div>
   </div>
 </footer>
 
@@ -598,6 +650,20 @@ footer {
     if (open) { mobileMenu.style.display = 'flex'; requestAnimationFrame(() => mobileMenu.classList.add('open')); }
     else { mobileMenu.classList.remove('open'); setTimeout(() => mobileMenu.style.display = 'none', 350); }
   });
+  
+  // Hide/show nav on scroll
+  let lastScroll = 0;
+  const navEl = document.querySelector('nav');
+  window.addEventListener('scroll', () => {
+    const current = window.scrollY;
+    if (current > lastScroll && current > 80) {
+      navEl.classList.add('nav-hidden');
+    } else {
+      navEl.classList.remove('nav-hidden');
+    }
+    lastScroll = current;
+  });
+
   function closeMobile() {
     hamburger.classList.remove('open'); mobileMenu.classList.remove('open');
     setTimeout(() => mobileMenu.style.display = 'none', 350);
