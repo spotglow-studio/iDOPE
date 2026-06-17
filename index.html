@@ -303,6 +303,60 @@ footer {
   .footer-made { text-align: center; }
 }
 
+
+    /* NEW RELEASES GRID - Mavin style */
+    .new-releases-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 2px;
+      background: var(--border);
+    }
+    .nr-card {
+      background: var(--black);
+      text-decoration: none;
+      display: block;
+      transition: background 0.2s;
+    }
+    .nr-card:hover { background: var(--dark); }
+    .nr-img-wrap {
+      position: relative;
+      overflow: hidden;
+      aspect-ratio: 1;
+    }
+    .nr-img-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.5s, filter 0.4s;
+    }
+    .nr-card:hover .nr-img-wrap img { transform: scale(1.05); filter: brightness(0.7); }
+    .nr-overlay {
+      position: absolute; inset: 0;
+      display: flex; align-items: center; justify-content: center;
+      opacity: 0; transition: opacity 0.3s;
+    }
+    .nr-card:hover .nr-overlay { opacity: 1; }
+    .nr-play {
+      width: 52px; height: 52px; border-radius: 50%;
+      background: var(--red); color: var(--white);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 18px; transform: scale(0.8); transition: transform 0.3s;
+    }
+    .nr-card:hover .nr-play { transform: scale(1); }
+    .nr-badge {
+      position: absolute; top: 12px; left: 12px;
+      background: var(--red); color: var(--white);
+      font-size: 10px; font-weight: 700; letter-spacing: 2px;
+      text-transform: uppercase; padding: 4px 10px; border-radius: 20px;
+    }
+    .nr-info { padding: 16px 20px 24px; }
+    .nr-artist { font-size: 12px; color: var(--grey); letter-spacing: 1px; text-transform: uppercase; margin-bottom: 6px; }
+    .nr-title { font-family: 'Barlow Condensed', sans-serif; font-weight: 900; font-size: 20px; letter-spacing: 0.5px; color: var(--white); margin-bottom: 4px; line-height: 1.2; }
+    .nr-meta { font-size: 11px; color: var(--grey); letter-spacing: 1px; }
+    @media (max-width: 768px) {
+      .new-releases-grid { grid-template-columns: repeat(2, 1fr); }
+    }
 </style>
   <style>
 
@@ -599,21 +653,6 @@ footer {
   <video class="hero-video" autoplay muted loop playsinline>
     <source src="https://res.cloudinary.com/dvznmnpys/video/upload/q_auto/v1781180988/DANTITI_combined_small_pdt7co.mp4" type="video/mp4">
   </video>
-  <div class="hero-eyebrow">From Lagos to London &bull; EST. 2017</div>
-  <img
-    src="https://res.cloudinary.com/dvznmnpys/image/upload/q_auto,f_auto,w_600/v1781182639/iDOPE_Logo-BIG-transparant_qlndoy.png"
-    alt="iDOPE"
-    class="hero-logo-img"
-    style="max-width: min(500px, 80vw); width: 100%; height: auto; display: block; margin: 0 auto 20px; position: relative; z-index: 2;"
-  >
-  <div class="hero-divider"></div>
-  <p class="hero-tagline">More than a record label. A movement built on music, mental health, and the belief that bold style speaks louder than words.</p>
-  <div class="hero-cta">
-    <a href="music.html" class="btn-primary">New Releases</a>
-    <a href="merch.html" class="btn-outline">Shop The Brand</a>
-  </div>
-</section>
-
 <!-- CATEGORY BANNERS -->
 <div class="cat-banners">
   <a href="music.html" class="cat-banner">
@@ -625,7 +664,7 @@ footer {
       <span class="cat-link">Listen now</span>
     </div>
   </a>
-  <a href="music.html#artists" class="cat-banner">
+  <a href="artists.html" class="cat-banner">
     <img src="https://res.cloudinary.com/dvznmnpys/image/upload/q_auto,f_auto,w_700,c_fill,g_north/v1781183611/Artist_Dantiti_kqjv4k.png" alt="Artists" style="object-position: top center;">
     <div class="cat-color"></div>
     <div class="cat-content">
@@ -645,55 +684,69 @@ footer {
   </a>
 </div>
 
-<!-- NEW RELEASES PREVIEW -->
+<!-- NEW RELEASES -->
 <div style="border-top: 1px solid var(--border);">
-  <div class="section-wrap" style="padding-bottom: 0;">
-    <span class="section-label reveal">Now Playing</span>
-    <div style="display:flex; justify-content:space-between; align-items:flex-end; margin-bottom: 36px; flex-wrap:wrap; gap:16px;">
-      <h2 class="section-title reveal">New Releases</h2>
-      <a href="music.html" class="btn-outline reveal" style="font-size:11px; padding:10px 22px;">All Music →</a>
+  <div class="section-wrap" style="padding-bottom: 36px;">
+    <div style="display:flex; justify-content:space-between; align-items:flex-end; flex-wrap:wrap; gap:16px;">
+      <div>
+        <span class="section-label reveal">Now Playing</span>
+        <h2 class="section-title reveal">New Releases</h2>
+      </div>
+      <a href="music.html" class="btn-outline reveal" style="font-size:11px;padding:10px 22px;">All Music →</a>
     </div>
   </div>
-  <div class="releases-preview">
-    <a href="https://open.spotify.com/album/7G9DQaPD3LBaV1cJV72Dnv" target="_blank" class="release-featured">
-      <div class="release-featured-img" style="background-image: url('https://i.scdn.co/image/ab67616d0000b273d88b625b8d2b9f6a7e45066c');"></div>
-      <div class="release-featured-content">
-        <span class="release-tag">Latest Release · 2026</span>
-        <div class="release-featured-title">Life Cycle of a<br>Butterfly: EP III</div>
-        <div class="release-featured-sub">Dantiti · 3 tracks · iDOPE</div>
-        <span class="btn-primary" style="pointer-events:none;">Listen on Spotify</span>
+  <div class="new-releases-grid">
+    <a href="https://open.spotify.com/album/7G9DQaPD3LBaV1cJV72Dnv" target="_blank" class="nr-card reveal">
+      <div class="nr-img-wrap">
+        <img src="https://i.scdn.co/image/ab67616d0000b273d88b625b8d2b9f6a7e45066c" alt="Life Cycle of a Butterfly EP III">
+        <div class="nr-overlay"><span class="nr-play">▶</span></div>
+        <span class="nr-badge">Latest</span>
+      </div>
+      <div class="nr-info">
+        <div class="nr-artist">Dantiti</div>
+        <div class="nr-title">Life Cycle of a Butterfly: EP III</div>
+        <div class="nr-meta">EP · 2026</div>
       </div>
     </a>
-    <div class="release-list">
-      <a href="https://open.spotify.com/album/7nBeYYT0pMoS7bUXQS3vVq" target="_blank" class="release-list-item">
-        <img class="release-list-cover" src="https://i.scdn.co/image/ab67616d00001e02e7984dded845fa1eeef1bd15" alt="Money Long">
-        <div class="release-list-info">
-          <div class="release-list-title">Money Long</div>
-          <div class="release-list-meta">Single · 2026</div>
-        </div>
-        <span class="release-list-arrow">→</span>
-      </a>
-      <div class="release-list-item" style="flex-direction:column; align-items:stretch; padding:0; gap:0;">
-        <iframe src="https://open.spotify.com/embed/album/4ARpbk8ojSLd2O7EtKaOYZ?utm_source=generator&theme=0" width="100%" height="80" style="border:none;display:block;" loading="lazy"></iframe>
+    <a href="https://open.spotify.com/album/7nBeYYT0pMoS7bUXQS3vVq" target="_blank" class="nr-card reveal">
+      <div class="nr-img-wrap">
+        <img src="https://i.scdn.co/image/ab67616d0000b273e7984dded845fa1eeef1bd15" alt="Money Long">
+        <div class="nr-overlay"><span class="nr-play">▶</span></div>
       </div>
-      <a href="https://open.spotify.com/album/7a7FMXS4lWXMPiu5dmbmG6" target="_blank" class="release-list-item">
-        <img class="release-list-cover" src="https://i.scdn.co/image/ab67616d00001e026d7efd00655344007f1eb962" alt="Life Cycle of a Butterfly EP II">
-        <div class="release-list-info">
-          <div class="release-list-title">Life Cycle: EP II</div>
-          <div class="release-list-meta">EP · 2025</div>
-        </div>
-        <span class="release-list-arrow">→</span>
-      </a>
-      <a href="https://open.spotify.com/artist/4khozhzk76aeDXJamgmutM" target="_blank" class="release-list-item" style="background: rgba(204,0,0,0.06); border-top: 1px solid var(--border);">
-        <div class="release-list-info">
-          <div class="release-list-title" style="font-size:16px;">View All Releases</div>
-          <div class="release-list-meta">On Spotify</div>
-        </div>
-        <span class="release-list-arrow" style="color:var(--red);">→</span>
-      </a>
-    </div>
+      <div class="nr-info">
+        <div class="nr-artist">Dantiti</div>
+        <div class="nr-title">Money Long</div>
+        <div class="nr-meta">Single · 2026</div>
+      </div>
+    </a>
+    <a href="https://open.spotify.com/album/4ARpbk8ojSLd2O7EtKaOYZ" target="_blank" class="nr-card reveal">
+      <div class="nr-img-wrap">
+        <img src="https://res.cloudinary.com/dvznmnpys/image/upload/q_auto,f_auto,w_600,c_fill,g_north/v1781183915/Big_Big_Tinz_bkr3jd.jpg" alt="Big Big Tinz">
+        <div class="nr-overlay"><span class="nr-play">▶</span></div>
+      </div>
+      <div class="nr-info">
+        <div class="nr-artist">Dantiti, Leo Pynk</div>
+        <div class="nr-title">Big Big Tinz</div>
+        <div class="nr-meta">Single · 2025</div>
+      </div>
+    </a>
+    <a href="https://open.spotify.com/album/7a7FMXS4lWXMPiu5dmbmG6" target="_blank" class="nr-card reveal">
+      <div class="nr-img-wrap">
+        <img src="https://i.scdn.co/image/ab67616d0000b2736d7efd00655344007f1eb962" alt="Life Cycle EP II">
+        <div class="nr-overlay"><span class="nr-play">▶</span></div>
+      </div>
+      <div class="nr-info">
+        <div class="nr-artist">Dantiti</div>
+        <div class="nr-title">Life Cycle of a Butterfly: EP II</div>
+        <div class="nr-meta">EP · 2025</div>
+      </div>
+    </a>
+  </div>
+  <div style="text-align:center; padding: 40px; border-top: 1px solid var(--border);">
+    <a href="https://open.spotify.com/artist/4khozhzk76aeDXJamgmutM" target="_blank" class="btn-outline" style="font-size:11px;padding:10px 22px;">View All on Spotify →</a>
   </div>
 </div>
+
 
 <!-- ARTIST TEASER -->
 <div style="border-top: 1px solid var(--border);">
