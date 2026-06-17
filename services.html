@@ -3,11 +3,12 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>About | iDOPE</title>
+  <title>Services | iDOPE</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;900&family=Inter:wght@300;400;500;600;700;900&display=swap" rel="stylesheet">
   <style>
+
     .footer-social { display: flex; gap: 14px; align-items: center; }
     .footer-social a {
       display: flex; align-items: center; justify-content: center;
@@ -304,124 +305,54 @@ footer {
   .footer-made { text-align: center; }
 }
 
-</style>
-  <style>
+
+
     .page-hero {
       min-height: 32vh; display: flex; flex-direction: column;
-      justify-content: flex-end; padding: 120px 48px 64px;
+      justify-content: flex-end; padding: 120px 48px 48px;
       position: relative; overflow: hidden;
       border-bottom: 1px solid var(--border);
     }
-    .page-hero-bg {
-      position: absolute; inset: 0;
-      background-image: url('https://res.cloudinary.com/dvznmnpys/image/upload/q_auto,f_auto,w_1400/v1781096310/iDOPE-logo_on-product_White_t6hdrs.png');
-      background-size: cover; background-position: center;
-      filter: brightness(0.12);
-    }
+    .page-hero-bg { position: absolute; inset: 0; background: var(--black); }
     .page-hero-content { position: relative; z-index: 2; }
     .page-hero-label { font-size: 11px; font-weight: 700; letter-spacing: 4px; text-transform: uppercase; color: var(--red); margin-bottom: 16px; display: block; }
-    .page-hero-title { font-family: 'Barlow Condensed', sans-serif; font-size: clamp(72px, 12vw, 140px); line-height: 0.88; color: var(--white); }
+    .page-hero-title { font-family: 'Barlow Condensed', sans-serif; font-weight: 900; font-size: clamp(72px, 12vw, 140px); line-height: 0.88; color: var(--white); }
 
-    /* MISSION */
-    .mission-split {
-      display: grid; grid-template-columns: 1fr 1fr;
-      gap: 2px; background: var(--border);
-      border-bottom: 1px solid var(--border);
-    }
-    .mission-text { padding: 80px 64px; background: var(--dark); }
-    .mission-img { overflow: hidden; }
-    .mission-img img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.6s; }
-    .mission-img:hover img { transform: scale(1.03); }
-    .mission-intro { font-size: 17px; color: var(--light); line-height: 1.9; margin-bottom: 28px; }
-    .mission-quote {
-      font-size: 15px; color: var(--grey); line-height: 1.9;
-      border-left: 3px solid var(--red); padding-left: 24px; margin-bottom: 40px;
-    }
-
-    /* PILLARS */
-    .pillars-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 2px; background: var(--border); }
-    .pillar {
-      background: var(--card); padding: 40px 32px;
-      transition: background 0.2s;
-    }
-    .pillar:hover { background: var(--dark); }
-    .pillar-icon { font-size: 32px; display: block; margin-bottom: 16px; }
-    .pillar-title { font-family: 'Barlow Condensed', sans-serif; font-size: 26px; letter-spacing: 1px; color: var(--white); margin-bottom: 12px; }
-    .pillar-text { font-size: 13px; color: var(--grey); line-height: 1.7; }
-
-    /* STATS */
-    .stats-row {
-      display: grid; grid-template-columns: repeat(4, 1fr);
-      gap: 2px; background: var(--border);
-      border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);
-    }
-    .stat-box { background: var(--dark); padding: 48px 36px; text-align: center; }
-    .stat-number { font-family: 'Barlow Condensed', sans-serif; font-size: clamp(52px, 6vw, 80px); color: var(--white); line-height: 1; margin-bottom: 8px; }
-    .stat-number span { color: var(--red); }
-    .stat-desc { font-size: 12px; color: var(--grey); letter-spacing: 2px; text-transform: uppercase; }
-
-    /* SERVICES */
-    .services-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
+    .services-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 2px; background: var(--border); }
     .service-card {
-      background: var(--card); border: 1px solid var(--border);
-      border-radius: 3px; padding: 36px; transition: border-color 0.2s, transform 0.2s;
+      background: var(--card); padding: 48px 40px;
+      transition: background 0.2s, border-color 0.2s;
+      border: 1px solid transparent;
     }
-    .service-card:hover { border-color: var(--red); transform: translateY(-3px); }
-    .service-icon { font-size: 28px; margin-bottom: 16px; display: block; }
-    .service-title { font-family: 'Barlow Condensed', sans-serif; font-size: 26px; letter-spacing: 1px; color: var(--white); margin-bottom: 12px; }
-    .service-text { font-size: 14px; color: var(--grey); line-height: 1.7; }
+    .service-card:hover { background: var(--dark); border-color: var(--red); }
+    .service-icon { font-size: 36px; display: block; margin-bottom: 20px; }
+    .service-title { font-family: 'Barlow Condensed', sans-serif; font-weight: 900; font-size: 32px; letter-spacing: 1px; color: var(--white); margin-bottom: 14px; }
+    .service-text { font-size: 15px; color: var(--light); line-height: 1.8; }
 
-    /* CONTACT */
-    .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2px; background: var(--border); }
-    .contact-block { background: var(--card); padding: 52px; }
-    .contact-label { font-size: 10px; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; color: var(--grey); margin-bottom: 8px; display: block; }
-    .contact-value { font-family: 'Barlow Condensed', sans-serif; font-size: 24px; letter-spacing: 1px; color: var(--white); text-decoration: none; transition: color 0.2s; display: block; }
-    .contact-value:hover { color: var(--red); }
-    .contact-address { font-size: 14px; color: var(--light); line-height: 1.7; margin-top: 4px; }
-
-    /* SOCIAL ROW */
-    .social-row { display: flex; gap: 16px; flex-wrap: wrap; justify-content: center; padding: 64px 40px; border-top: 1px solid var(--border); }
-    .social-btn {
-      display: flex; align-items: center; gap: 10px;
-      color: var(--light); text-decoration: none; font-size: 12px;
-      font-weight: 600; letter-spacing: 2px; text-transform: uppercase;
-      border: 1px solid var(--border); padding: 14px 28px;
-      border-radius: 2px; transition: all 0.25s; min-width: 160px; justify-content: center;
+    .services-cta {
+      text-align: center; padding: 80px 40px;
+      border-top: 1px solid var(--border);
     }
-    .social-btn:hover { border-color: var(--white); color: var(--white); transform: translateY(-3px); }
-    .social-btn.ig:hover { border-color: #E1306C; color: #E1306C; }
-    .social-btn.yt:hover { border-color: #FF0000; color: #FF0000; }
-    .social-btn.sp:hover { border-color: #1DB954; color: #1DB954; }
 
-    @media (max-width: 900px) {
-      .mission-split { grid-template-columns: 1fr; }
-      .mission-text { padding: 52px 24px; }
-      .pillars-grid { grid-template-columns: repeat(2, 1fr); }
-      .stats-row { grid-template-columns: repeat(2, 1fr); }
+    @media (max-width: 768px) {
       .services-grid { grid-template-columns: 1fr; }
-      .contact-grid { grid-template-columns: 1fr; }
-      .page-hero { padding: 100px 24px 48px; }
+      .page-hero { padding: 100px 24px 40px; }
     }
-  </style>
-  <style>
-  .nav-logo-img { height: 36px; width: auto; display: block; }
-  nav { height: 76px; }
-  .page-wrap { padding-top: 76px; }
-  .mobile-menu { top: 76px; }
-  
   </style>
 </head>
 <body class="page-wrap">
 
 <nav>
   <a href="index.html" class="nav-logo">
-    <img src="https://res.cloudinary.com/dvznmnpys/image/upload/q_auto,f_auto,h_72/v1781182639/iDOPE_Logo-BIG-transparant_qlndoy.png" alt="iDOPE" class="nav-logo-img">
+    <img src="https://res.cloudinary.com/dvznmnpys/image/upload/q_auto,f_auto,h_72/v1781182639/iDOPE_Logo-BIG-transparant_qlndoy.png" alt="iDOPE" style="height:36px;width:auto;display:block;">
   </a>
   <ul class="nav-links">
-    <li><a href="index.html" >Home</a></li>
-    <li><a href="music.html" >Music</a></li>
-    <li><a href="merch.html" >Merch</a></li>
-    <li><a href="artists.html">Artists</a></li><li><a href="services.html">Services</a></li><li><a href="about.html" class="active">About</a></li>
+    <li><a href="index.html">Home</a></li>
+    <li><a href="music.html">Music</a></li>
+    <li><a href="artists.html">Artists</a></li>
+    <li><a href="merch.html">Merch</a></li>
+    <li><a href="services.html" class="active">Services</a></li>
+    <li><a href="about.html">About</a></li>
   </ul>
   <a href="mailto:info@idoperecords.com" class="nav-contact">Contact</a>
   <button class="hamburger" id="hamburger" aria-label="Open menu">
@@ -431,122 +362,59 @@ footer {
 <div class="mobile-menu" id="mobileMenu">
   <a href="index.html" onclick="closeMobile()">Home</a>
   <a href="music.html" onclick="closeMobile()">Music</a>
-  <a href="merch.html" onclick="closeMobile()">Merch</a>
   <a href="artists.html" onclick="closeMobile()">Artists</a>
+  <a href="merch.html" onclick="closeMobile()">Merch</a>
   <a href="services.html" onclick="closeMobile()">Services</a>
   <a href="about.html" onclick="closeMobile()">About</a>
   <a href="mailto:info@idoperecords.com" class="mob-contact">Contact</a>
 </div>
 
-<!-- PAGE HERO -->
 <div class="page-hero">
   <div class="page-hero-bg"></div>
   <div class="page-hero-content">
-    <span class="page-hero-label">From Lagos to London &bull; EST. 2017</span>
-    <h1 class="page-hero-title">About<br><img src="https://res.cloudinary.com/dvznmnpys/image/upload/q_auto,f_auto,h_120/v1781182639/iDOPE_Logo-BIG-transparant_qlndoy.png" alt="iDOPE" style="height:clamp(60px,8vw,100px);width:auto;display:inline-block;vertical-align:middle;"></h1>
+    <span class="page-hero-label">iDOPE</span>
+    <h1 class="page-hero-title">Services</h1>
   </div>
 </div>
 
-<!-- MISSION -->
-<div class="mission-split">
-  <div class="mission-text">
-    <span class="section-label reveal">Our Story</span>
-    <h2 class="section-title reveal" style="margin-bottom:32px;">More Than a<br>Record Label</h2>
-    <p class="mission-intro reveal">iDOPE is a creative hub founded by Daniel Ofuzor (Dantiti) in 2017, with a passion for music and mental wellness. We amplify bold voices, fresh sounds, and meaningful connections, aiming to reshape entertainment one beat at a time.</p>
-    <p class="mission-quote reveal">We aim to empower artists with innovative solutions, promote mental health, foster a culture where creativity and every voice are valued, and uphold ethics, sustainability, and social impact.</p>
-    <a href="music.html" class="btn-primary reveal">Hear The Music</a>
-  </div>
-  <div class="mission-img">
-    <img src="https://res.cloudinary.com/dvznmnpys/image/upload/q_auto,f_auto,w_800/v1781184248/DANTITI_BIRMS-STUDIO_1_Small_paiugx.jpg" alt="Dantiti - iDOPE Founder" loading="lazy">
+<div style="border-top: 1px solid var(--border); background: var(--dark);">
+  <div class="section-wrap" style="padding-bottom: 36px;">
+    <span class="section-label reveal">What We Offer</span>
+    <h2 class="section-title reveal" style="margin-bottom: 8px;">Built for Artists.<br>Built for Growth.</h2>
+    <p class="reveal" style="font-size:15px;color:var(--light);max-width:560px;line-height:1.85;margin-top:20px;">iDOPE is more than a label. We offer end-to-end support for artists who want to build something that lasts.</p>
   </div>
 </div>
 
-<!-- STATS -->
-<div class="stats-row">
-  <div class="stat-box reveal">
-    <div class="stat-number">20<span>17</span></div>
-    <div class="stat-desc">Founded</div>
+<div class="services-grid">
+  <div class="service-card reveal">
+    <span class="service-icon">🎙️</span>
+    <div class="service-title">Artist Development</div>
+    <p class="service-text">From raw talent to fully formed artist, we support musicians at every stage. Music, marketing, and entrepreneurial expertise under one roof.</p>
   </div>
-  <div class="stat-box reveal">
-    <div class="stat-number">3</div>
-    <div class="stat-desc">Countries</div>
+  <div class="service-card reveal">
+    <span class="service-icon">🎛️</span>
+    <div class="service-title">Recording & Production</div>
+    <p class="service-text">Top-notch equipment and a vision for success. We take your music further with professional recording and production support.</p>
   </div>
-  <div class="stat-box reveal">
-    <div class="stat-number">900<span>+</span></div>
-    <div class="stat-desc">Monthly Listeners</div>
+  <div class="service-card reveal">
+    <span class="service-icon">📣</span>
+    <div class="service-title">Marketing & Promotion</div>
+    <p class="service-text">From DSP strategy to social media, we get your music in front of the right ears, globally.</p>
   </div>
-  <div class="stat-box reveal">
-    <div class="stat-number">∞</div>
-    <div class="stat-desc">Authenticated Items</div>
-  </div>
-</div>
-
-<!-- PILLARS -->
-<div style="border-top: 1px solid var(--border);">
-  <div class="section-wrap" style="padding-bottom:36px;">
-    <span class="section-label reveal">What We Stand For</span>
-    <h2 class="section-title reveal">Our Values</h2>
-  </div>
-  <div class="pillars-grid">
-    <div class="pillar reveal">
-      <span class="pillar-icon">🎵</span>
-      <div class="pillar-title">Independent Music</div>
-      <p class="pillar-text">Focused on promoting indie and emerging artists globally, with full creative control and ownership at the centre of everything we do.</p>
-    </div>
-    <div class="pillar reveal">
-      <span class="pillar-icon">🧠</span>
-      <div class="pillar-title">Mental Health</div>
-      <p class="pillar-text">Bringing real awareness to mental wellness through powerful music and community programs. It's not just background, it's the mission.</p>
-    </div>
-    <div class="pillar reveal">
-      <span class="pillar-icon">🌍</span>
-      <div class="pillar-title">Global Reach</div>
-      <p class="pillar-text">Three countries, one sound. From Benin City to Wolverhampton to London, connecting cultures and building bridges through music.</p>
-    </div>
-    <div class="pillar reveal">
-      <span class="pillar-icon">✊</span>
-      <div class="pillar-title">Ethics & Impact</div>
-      <p class="pillar-text">Upholding ethics, sustainability, and social impact in every decision, from the studio to the supply chain.</p>
-    </div>
+  <div class="service-card reveal">
+    <span class="service-icon">👕</span>
+    <div class="service-title">iDOPE Brand</div>
+    <p class="service-text">The brand extends the label's culture into merch — seasonal, authenticated streetwear for people who live the movement.</p>
   </div>
 </div>
 
-<!-- CONTACT -->
-<div style="border-top: 1px solid var(--border);">
-  <div class="section-wrap" style="padding-bottom:36px;">
-    <span class="section-label reveal">Get In Touch</span>
-    <h2 class="section-title reveal">Contact</h2>
-  </div>
-  <div class="contact-grid">
-    <div class="contact-block reveal">
-      <span class="contact-label">Phone</span>
-      <a href="tel:+447919268959" class="contact-value">+44 7919 268959</a>
-    </div>
-    <div class="contact-block reveal" style="grid-column: 1 / -1;">
-      <span class="contact-label">Address</span>
-      <span class="contact-value" style="pointer-events:none;">iDOPE</span>
-      <p class="contact-address">Suite G04, 1 Quality Court, Chancery Lane, London, England, WC2A 1HR</p>
-    </div>
-  </div>
+<div class="services-cta reveal">
+  <span class="section-label" style="display:block;text-align:center;margin-bottom:12px;">Get In Touch</span>
+  <h2 style="font-family:'Barlow Condensed';font-weight:900;font-size:clamp(36px,5vw,56px);color:var(--white);margin-bottom:16px;">Ready to Work Together?</h2>
+  <p style="font-size:15px;color:var(--grey);max-width:440px;margin:0 auto 36px;line-height:1.8;">Whether you're an artist looking for a home or a brand looking to collaborate, we want to hear from you.</p>
+  <a href="about.html#contact" class="btn-primary">Contact iDOPE</a>
 </div>
 
-<!-- SOCIAL -->
-<div class="social-row">
-  <a href="https://instagram.com/idoperecords" target="_blank" class="social-btn ig">
-    <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
-    Instagram
-  </a>
-  <a href="https://www.youtube.com/@idoperecords" target="_blank" class="social-btn yt">
-    <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M23.495 6.205a3.007 3.007 0 0 0-2.088-2.088c-1.87-.501-9.396-.501-9.396-.501s-7.507-.01-9.396.501A3.007 3.007 0 0 0 .527 6.205a31.247 31.247 0 0 0-.522 5.805 31.247 31.247 0 0 0 .522 5.783 3.007 3.007 0 0 0 2.088 2.088c1.868.502 9.396.502 9.396.502s7.506 0 9.396-.502a3.007 3.007 0 0 0 2.088-2.088 31.247 31.247 0 0 0 .5-5.783 31.247 31.247 0 0 0-.5-5.805zM9.609 15.601V8.408l6.264 3.602z"/></svg>
-    YouTube
-  </a>
-  <a href="https://open.spotify.com/artist/4khozhzk76aeDXJamgmutM" target="_blank" class="social-btn sp">
-    <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.521 17.34c-.24.359-.66.48-1.021.24-2.82-1.74-6.36-2.101-10.561-1.141-.418.122-.779-.179-.899-.539-.12-.421.18-.78.54-.9 4.56-1.021 8.52-.6 11.64 1.32.42.18.479.659.301 1.02zm1.44-3.3c-.301.42-.841.6-1.262.3-3.239-1.98-8.159-2.58-11.939-1.38-.479.12-1.02-.12-1.14-.6-.12-.48.12-1.021.6-1.141C9.6 9.9 15 10.561 18.72 12.84c.361.181.54.78.241 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.301c-.6.179-1.2-.181-1.38-.721-.18-.601.18-1.2.72-1.381 4.26-1.26 11.28-1.02 15.721 1.621.539.3.719 1.02.419 1.56-.299.421-1.02.599-1.559.3z"/></svg>
-    Spotify
-  </a>
-</div>
-
-<!-- FOOTER -->
 <footer>
   <div class="footer-inner">
     <div class="footer-top">
@@ -564,8 +432,13 @@ footer {
           <a href="https://www.youtube.com/@idoperecords" target="_blank">YouTube</a>
         </div>
         <div class="footer-col">
+          <h4>Artists</h4>
+          <a href="artists.html">All Artists</a>
+          <a href="dantiti.html">Dantiti</a>
+        </div>
+        <div class="footer-col">
           <h4>Brand</h4>
-          <a href="https://idopeshop.com" target="_blank">iDOPE Shop</a>
+          <a href="https://idopeshop.com" target="_blank">Shop</a>
         </div>
         <div class="footer-col">
           <h4>Info</h4>
@@ -588,8 +461,7 @@ footer {
           <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.521 17.34c-.24.359-.66.48-1.021.24-2.82-1.74-6.36-2.101-10.561-1.141-.418.122-.779-.179-.899-.539-.12-.421.18-.78.54-.9 4.56-1.021 8.52-.6 11.64 1.32.42.18.479.659.301 1.02zm1.44-3.3c-.301.42-.841.6-1.262.3-3.239-1.98-8.159-2.58-11.939-1.38-.479.12-1.02-.12-1.14-.6-.12-.48.12-1.021.6-1.141C9.6 9.9 15 10.561 18.72 12.84c.361.181.54.78.241 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.301c-.6.179-1.2-.181-1.38-.721-.18-.601.18-1.2.72-1.381 4.26-1.26 11.28-1.02 15.721 1.621.539.3.719 1.02.419 1.56-.299.421-1.02.599-1.559.3z"/></svg>
         </a>
       </div>
-
-</div>
+    </div>
   </div>
 </footer>
 
@@ -601,24 +473,18 @@ footer {
     if (open) { mobileMenu.style.display = 'flex'; requestAnimationFrame(() => mobileMenu.classList.add('open')); }
     else { mobileMenu.classList.remove('open'); setTimeout(() => mobileMenu.style.display = 'none', 350); }
   });
-  
-  // Hide/show nav on scroll
-  let lastScroll = 0;
-  const navEl = document.querySelector('nav');
-  window.addEventListener('scroll', () => {
-    const current = window.scrollY;
-    if (current > lastScroll && current > 80) {
-      navEl.classList.add('nav-hidden');
-    } else {
-      navEl.classList.remove('nav-hidden');
-    }
-    lastScroll = current;
-  });
-
   function closeMobile() {
     hamburger.classList.remove('open'); mobileMenu.classList.remove('open');
     setTimeout(() => mobileMenu.style.display = 'none', 350);
   }
+  let lastScroll = 0;
+  const navEl = document.querySelector('nav');
+  window.addEventListener('scroll', () => {
+    const current = window.scrollY;
+    if (current > lastScroll && current > 80) { navEl.classList.add('nav-hidden'); }
+    else { navEl.classList.remove('nav-hidden'); }
+    lastScroll = current;
+  });
   const observer = new IntersectionObserver(e => e.forEach(el => { if (el.isIntersecting) el.target.classList.add('visible'); }), { threshold: 0.08 });
   document.querySelectorAll('.reveal').forEach((el, i) => { el.style.transitionDelay = (i % 3) * 0.1 + 's'; observer.observe(el); });
 </script>
