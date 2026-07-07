@@ -365,13 +365,246 @@ footer {
       transition: gap 0.2s, color 0.2s;
     }
 
+
+    /* REVERSED CARD — photo on right */
+    .artist-card.reversed {
+      direction: rtl;
+    }
+    .artist-card.reversed > * {
+      direction: ltr;
+    }
+
+    /* EMBED inside artist card */
+    .artist-embed {
+      margin-bottom: 24px;
+    }
+    .artist-embed iframe {
+      width: 100%;
+      border: none;
+      border-radius: 3px;
+      display: block;
+    }
+
+    /* VIDEO in card */
+    .artist-video-wrap {
+      position: relative;
+      padding-bottom: 56.25%;
+      height: 0;
+      overflow: hidden;
+      border-radius: 2px;
+      margin-bottom: 28px;
+      border: 1px solid var(--border);
+    }
+    .artist-video-wrap iframe {
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      border: none;
+    }
+
+    /* ARTIST ROLE TAG */
+    .artist-role {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--red);
+      background: rgba(204,0,0,0.12);
+      border: 1px solid rgba(204,0,0,0.3);
+      padding: 4px 12px;
+      border-radius: 20px;
+      display: inline-block;
+      margin-bottom: 16px;
+    }
+
+    /* SOCIAL LINKS in card */
+    .artist-socials {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-bottom: 24px;
+    }
+    .artist-social-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      color: var(--light);
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      border: 1px solid var(--border);
+      padding: 8px 16px;
+      border-radius: 2px;
+      transition: all 0.2s;
+      text-decoration: none;
+    }
+    .artist-social-link:hover { color: var(--white); border-color: var(--white); }
+    .artist-social-link.ig:hover { border-color: #E1306C; color: #E1306C; }
+    .artist-social-link.sp:hover { border-color: #1DB954; color: #1DB954; }
+    .artist-social-link.yt:hover { border-color: #FF0000; color: #FF0000; }
+    .artist-social-link.sc:hover { border-color: #FF5500; color: #FF5500; }
+
+    @media (max-width: 900px) {
+      .artist-card.reversed { direction: ltr; }
+    }
+
     @media (max-width: 900px) {
       .artist-card { grid-template-columns: 1fr; }
       .artist-card-img { min-height: 360px; }
       .artist-card-text { padding: 48px 24px; }
       .page-hero { padding: 100px 24px 48px; }
     }
-  </style>
+  
+    /* ROSTER GRID */
+    .roster-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 3px;
+      background: var(--border);
+    }
+    .roster-item {
+      position: relative;
+      overflow: hidden;
+      aspect-ratio: 3/4;
+      display: block;
+      text-decoration: none;
+    }
+    .roster-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.6s, filter 0.4s;
+      filter: brightness(0.55);
+    }
+    .roster-item:hover img { transform: scale(1.06); filter: brightness(0.3); }
+    .roster-overlay {
+      position: absolute; inset: 0;
+      background: var(--red);
+      opacity: 0;
+      transition: opacity 0.4s;
+    }
+    .roster-item:hover .roster-overlay { opacity: 0.3; }
+    .roster-content {
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      padding: 28px 28px 32px;
+      z-index: 2;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+    .roster-role {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--red);
+    }
+    .roster-name {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 900;
+      font-size: clamp(32px, 4vw, 52px);
+      color: var(--white);
+      line-height: 1;
+      letter-spacing: 1px;
+    }
+    .roster-genre {
+      font-size: 12px;
+      color: rgba(255,255,255,0.6);
+      letter-spacing: 1px;
+    }
+    .roster-cta {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.5);
+      margin-top: 8px;
+      transition: color 0.2s;
+    }
+    .roster-item:hover .roster-cta { color: var(--white); }
+
+    /* ARTIST SECTIONS */
+    .artist-section {
+      border-top: 1px solid var(--border);
+      background: var(--black);
+      scroll-margin-top: 76px;
+    }
+    .artist-section.dark { background: var(--dark); }
+
+    .artist-section-header {
+      padding: 56px 48px 40px;
+      border-bottom: 3px solid var(--red);
+    }
+    .artist-section-name {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 900;
+      font-size: clamp(56px, 9vw, 100px);
+      line-height: 0.9;
+      color: var(--white);
+      letter-spacing: 1px;
+      margin-bottom: 8px;
+    }
+    .artist-section-genre {
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--grey);
+    }
+
+    .artist-section-body {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0;
+    }
+    .artist-section-body.reversed { direction: rtl; }
+    .artist-section-body.reversed > * { direction: ltr; }
+
+    .artist-section-img {
+      overflow: hidden;
+      border-right: 1px solid var(--border);
+    }
+    .artist-section-body.reversed .artist-section-img {
+      border-right: none;
+      border-left: 1px solid var(--border);
+    }
+    .artist-section-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      display: block;
+    }
+
+    .artist-section-info {
+      padding: 48px;
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+    .artist-section-bio {
+      font-size: 15px;
+      color: var(--light);
+      line-height: 1.85;
+      margin-bottom: 28px;
+    }
+
+    /* SMOOTH SCROLL */
+    html { scroll-behavior: smooth; }
+
+    @media (max-width: 900px) {
+      .roster-grid { grid-template-columns: 1fr; }
+      .roster-item { aspect-ratio: 16/7; }
+      .artist-section-body { grid-template-columns: 1fr; direction: ltr; }
+      .artist-section-body.reversed { direction: ltr; }
+      .artist-section-body.reversed > * { direction: ltr; }
+      .artist-section-img { border-right: none; border-left: none; border-bottom: 1px solid var(--border); }
+      .artist-section-info { padding: 32px 20px; }
+      .artist-section-header { padding: 40px 20px 28px; }
+    }
+</style>
 </head>
 <body class="page-wrap">
 
@@ -409,16 +642,138 @@ footer {
   </div>
 </div>
 
-<div class="artist-card">
-  <div class="artist-card-img">
-    <img src="https://res.cloudinary.com/dvznmnpys/image/upload/q_auto,f_auto,w_900,c_fill,g_north/v1781184248/DANTITI_BIRMS-STUDIO_2_Small_zyddtx.jpg" alt="Dantiti" loading="lazy">
+
+<!-- ROSTER GRID — 3 klikbare vlakken -->
+<div class="roster-grid">
+
+  <a href="#dantiti" class="roster-item">
+    <img src="https://res.cloudinary.com/dvznmnpys/image/upload/q_auto,f_auto,w_700,c_fill,g_north/v1781184248/DANTITI_BIRMS-STUDIO_2_Small_zyddtx.jpg" alt="Dantiti">
+    <div class="roster-overlay"></div>
+    <div class="roster-content">
+      <span class="roster-role">Artist</span>
+      <span class="roster-name">Dantiti</span>
+      <span class="roster-genre">Afrobeats · Afrofusion · R&B</span>
+      <span class="roster-cta">View Profile ↓</span>
+    </div>
+  </a>
+
+  <a href="#leopynk" class="roster-item">
+    <img src="https://res.cloudinary.com/dvznmnpys/image/upload/q_auto,f_auto,w_700,c_fill,g_north,e_improve,e_sharpen/v1783414708/Leo-Pynk_Pic_y27asu.jpg" alt="Leo Pynk">
+    <div class="roster-overlay"></div>
+    <div class="roster-content">
+      <span class="roster-role">Artist &amp; Producer</span>
+      <span class="roster-name">Leo Pynk</span>
+      <span class="roster-genre">Afrobeats · Afropop</span>
+      <span class="roster-cta">View Profile ↓</span>
+    </div>
+  </a>
+
+  <a href="#princetonbeatz" class="roster-item">
+    <img src="https://res.cloudinary.com/dvznmnpys/image/upload/q_auto,f_auto,w_700,c_fill,g_north/v1783414972/Princeton-Beatz-Pic_1_qhyy7s.jpg" alt="Princeton Beatz">
+    <div class="roster-overlay"></div>
+    <div class="roster-content">
+      <span class="roster-role">Producer</span>
+      <span class="roster-name">Princeton Beatz</span>
+      <span class="roster-genre">Afrobeats · Production</span>
+      <span class="roster-cta">View Profile ↓</span>
+    </div>
+  </a>
+
+</div>
+
+<!-- DANTITI -->
+<div id="dantiti" class="artist-section">
+  <div class="artist-section-header reveal">
+    <span class="section-label">Artist</span>
+    <h2 class="artist-section-name">Dantiti</h2>
+    <p class="artist-section-genre">Afrobeats · Afrofusion · R&B · Rap</p>
   </div>
-  <div class="artist-card-text">
-    
-    <div class="artist-card-name">Dantiti</div>
-    <p class="artist-card-genre">Afrobeats · Afrofusion · R&amp;B · Rap</p>
-    <p class="artist-card-bio">Dantiti built his sound from Nigeria to Ghana and to the UK, blending Afrobeats, Afrofusion, and Rap into something entirely his own. He founded iDOPE in 2017 to own his story from the start.</p>
-    <a href="dantiti.html" class="artist-card-link">View Artist →</a>
+  <div class="artist-section-body">
+    <div class="artist-section-img reveal">
+      <img src="https://res.cloudinary.com/dvznmnpys/image/upload/q_auto,f_auto,w_900,c_fill,g_north/v1781183915/Big_Big_Tinz_bkr3jd.jpg" alt="Dantiti">
+    </div>
+    <div class="artist-section-info">
+      <p class="artist-section-bio reveal">Dantiti built his sound from Nigeria to Ghana and to the UK, blending Afrobeats, Afrofusion, and Rap into something entirely his own. He founded iDOPE in 2017 to own his story from the start.</p>
+      <div class="artist-socials reveal">
+        <a href="https://www.instagram.com/itzdantiti/" target="_blank" class="artist-social-link ig">Instagram</a>
+        <a href="https://open.spotify.com/artist/4khozhzk76aeDXJamgmutM" target="_blank" class="artist-social-link sp">Spotify</a>
+        <a href="https://www.youtube.com/@idoperecords" target="_blank" class="artist-social-link yt">YouTube</a>
+        <a href="dantiti.html" class="artist-social-link">Full Profile</a>
+      </div>
+      <div class="reveal" style="margin-bottom:24px;">
+        <a href="https://dantiti.spotglow-studio.com" target="_blank" class="btn-primary" style="display:inline-block;background:var(--red);color:#fff;padding:13px 28px;font-size:12px;font-weight:700;letter-spacing:2px;text-transform:uppercase;border-radius:2px;transition:background 0.2s;" onmouseover="this.style.background='#aa0000'" onmouseout="this.style.background='var(--red)'">Visit Dantiti.com →</a>
+      </div>
+      <div class="artist-embed reveal">
+        <iframe src="https://open.spotify.com/embed/artist/4khozhzk76aeDXJamgmutM?utm_source=generator&theme=0" height="160" loading="lazy"></iframe>
+      </div>
+      <div class="artist-video-wrap reveal">
+        <iframe src="https://www.youtube.com/embed/AY9xTV3b-Uw" title="Dantiti: Official Video" allowfullscreen loading="lazy"></iframe>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- LEO PYNK -->
+<div id="leopynk" class="artist-section dark">
+  <div class="artist-section-header reveal">
+    <span class="section-label">Artist &amp; Producer</span>
+    <h2 class="artist-section-name">Leo Pynk</h2>
+    <p class="artist-section-genre">Afrobeats · Afropop · Production</p>
+  </div>
+  <div class="artist-section-body reversed">
+    <div class="artist-section-img reveal" style="position:relative;">
+      <div style="position:absolute;inset:0;background-image:url('https://res.cloudinary.com/dvznmnpys/image/upload/q_auto,f_auto,w_1200,c_fill,g_auto/v1783415341/Leo-Pynk_Pic-Background-Wide_tkigs5.jpg');background-size:cover;background-position:center top;filter:brightness(0.25) blur(3px);transform:scale(1.05);border-radius:2px;"></div>
+      <img src="https://res.cloudinary.com/dvznmnpys/image/upload/q_auto,f_auto,w_900,e_improve,e_sharpen/v1783414708/Leo-Pynk_Pic_y27asu.jpg" alt="Leo Pynk" style="position:relative;z-index:1;width:100%;height:auto;display:block;border-radius:2px;">
+    </div>
+    <div class="artist-section-info">
+      <p class="artist-section-bio reveal">Born Iko Sunday in Edo State, Nigeria, Leo Pynk started singing at school and turned music into a career right out of Moshood Abiola Polytechnic in 2019. A versatile artist and producer, he blends Afrobeats and Afropop into his own distinct sound. Known for crafting the beat behind Dantiti's "Big Big Tinz" — originally made for Davido — Leo Pynk is one of Nigeria's most exciting rising forces in music.</p>
+      <div class="artist-socials reveal">
+        <a href="https://www.instagram.com/leo_pynk/" target="_blank" class="artist-social-link ig">Instagram</a>
+        <a href="https://open.spotify.com/artist/7EMO8262zMvPFUJjOyq549" target="_blank" class="artist-social-link sp">Spotify</a>
+        <a href="https://music.youtube.com/watch?v=BZZv9fglrus" target="_blank" class="artist-social-link yt">YouTube</a>
+      </div>
+      <div class="artist-embed reveal">
+        <iframe src="https://open.spotify.com/embed/artist/7EMO8262zMvPFUJjOyq549?utm_source=generator&theme=0" height="160" loading="lazy"></iframe>
+      </div>
+      <div class="artist-video-wrap reveal">
+        <iframe src="https://www.youtube.com/embed/BZZv9fglrus" title="Leo Pynk" allowfullscreen loading="lazy"></iframe>
+      </div>
+      <div class="reveal" style="padding-top:16px;border-top:1px solid var(--border);font-size:13px;color:var(--grey);">
+        Featured in <a href="https://guardian.ng/art/leo-pink-fast-rising-singer-producer-aiming-for-the-stars/" target="_blank" style="color:var(--light);text-decoration:underline;text-underline-offset:3px;">The Guardian Nigeria</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- PRINCETON BEATZ -->
+<div id="princetonbeatz" class="artist-section">
+  <div class="artist-section-header reveal">
+    <span class="section-label">Producer</span>
+    <h2 class="artist-section-name">Princeton Beatz</h2>
+    <p class="artist-section-genre">Afrobeats · Production</p>
+  </div>
+  <div class="artist-section-body">
+    <div class="artist-section-img reveal">
+      <img src="https://res.cloudinary.com/dvznmnpys/image/upload/q_auto,f_auto,w_900,c_fill,g_north/v1783414972/Princeton-Beatz-Pic_1_qhyy7s.jpg" alt="Princeton Beatz">
+    </div>
+    <div class="artist-section-info">
+      <p class="artist-section-bio reveal">Kedei Ofem, known as Princeton Beatz, is an Afrobeats music producer crafting rhythms that move the world. With 27 tracks and a growing catalogue on SoundCloud, he brings a distinct rhythmic sensibility to every beat he creates.</p>
+      <div class="artist-socials reveal">
+        <a href="https://www.instagram.com/princetonbeatz/" target="_blank" class="artist-social-link ig">Instagram</a>
+        <a href="https://soundcloud.com/princetonbeatz" target="_blank" class="artist-social-link sc">SoundCloud</a>
+      </div>
+      <div class="reveal" style="max-width:320px;">
+        <div style="position:relative;padding-bottom:177.78%;height:0;overflow:hidden;border-radius:2px;border:1px solid var(--border);">
+          <video controls style="position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;background:#000;">
+            <source src="https://res.cloudinary.com/dvznmnpys/video/upload/q_auto/v1783414978/Princeton-Beatz-Vid_tspdy2.mp4" type="video/mp4">
+          </video>
+        </div>
+      </div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:24px;" class="reveal">
+        <img src="https://res.cloudinary.com/dvznmnpys/image/upload/q_auto,f_auto,w_400/v1783414973/Princeton-Beatz-Pic_2_ikk7jk.jpg" alt="Princeton Beatz" style="width:100%;border-radius:2px;display:block;">
+        <img src="https://res.cloudinary.com/dvznmnpys/image/upload/q_auto,f_auto,w_400/v1783414738/Princeton-Beatz_profile-picture_hoibny.jpg" alt="Princeton Beatz" style="width:100%;border-radius:2px;display:block;">
+      </div>
+    </div>
   </div>
 </div>
 
@@ -442,6 +797,8 @@ footer {
           <h4>Artists</h4>
           <a href="artists.html">All Artists</a>
           <a href="dantiti.html">Dantiti</a>
+          <a href="artists.html#leo-pynk">Leo Pynk</a>
+          <a href="artists.html#princeton-beatz">Princeton Beatz</a>
         </div>
         <div class="footer-col">
           <h4>Brand</h4>
