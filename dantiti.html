@@ -531,20 +531,45 @@ footer {
       .artist-hero-links { flex-direction: column; }
       .disc-grid { grid-template-columns: repeat(2, 1fr); }
     }
+
+    @media (max-width: 768px) {
+      [style*="min-height:560px"] { min-height: 300px !important; }
+      [style*="min-height: 560px"] { min-height: 300px !important; }
+      [style*="min-height:480px"] { min-height: 260px !important; }
+      [style*="min-height: 480px"] { min-height: 260px !important; }
+      [style*="min-height:420px"] { min-height: 240px !important; }
+      [style*="min-height: 420px"] { min-height: 240px !important; }
+      [style*="min-height:360px"] { min-height: 200px !important; }
+      .artist-section-img { min-height: 280px !important; }
+      .release-featured { min-height: 260px !important; }
+    }
+
+    @media (max-width: 768px) {
+      .hero-video { opacity: 0.15; }
+      .hero { padding: 100px 20px 60px; min-height: 90vh; }
+    }
+
+    @media (max-width: 380px) {
+      .nav-logo-img { height: 28px !important; }
+      nav { height: 60px; }
+      .page-wrap { padding-top: 60px; }
+      .mobile-menu { top: 60px; }
+    }
+
   </style>
 </head>
 <body class="page-wrap">
 
 <nav>
   <a href="index.html" class="nav-logo">
-    <img src="https://res.cloudinary.com/dvznmnpys/image/upload/q_auto,f_auto,h_72/v1781182639/iDOPE_Logo-BIG-transparant_qlndoy.png" alt="iDOPE" class="nav-logo-img" style="height:36px;width:auto;display:block;">
+    <img src="https://res.cloudinary.com/dvznmnpys/image/upload/q_auto,f_auto,h_72/v1781182639/iDOPE_Logo-BIG-transparant_qlndoy.png" alt="iDOPE" class="nav-logo-img" style="height:36px;width:auto;display:block;" loading="lazy">
   </a>
   <ul class="nav-links">
     <li><a href="index.html">Home</a></li>
     <li><a href="music.html">Music</a></li>
-    <li><a href="artists.html" class="active">Artists</a></li>
+    <li><a href="artists.html">Artists</a></li>
     <li><a href="merch.html">Merch</a></li>
-    <li><a href="services.html">Services</a></li><li><a href="about.html">About</a></li>
+    <li><a href="about.html">About</a></li>
   </ul>
   <a href="mailto:info@idoperecords.com" class="nav-contact">Contact</a>
   <button class="hamburger" id="hamburger" aria-label="Open menu">
@@ -556,7 +581,6 @@ footer {
   <a href="music.html" onclick="closeMobile()">Music</a>
   <a href="artists.html" onclick="closeMobile()">Artists</a>
   <a href="merch.html" onclick="closeMobile()">Merch</a>
-  <a href="services.html" onclick="closeMobile()">Services</a>
   <a href="about.html" onclick="closeMobile()">About</a>
   <a href="mailto:info@idoperecords.com" class="mob-contact">Contact</a>
 </div>
@@ -602,7 +626,7 @@ footer {
 <!-- LATEST RELEASE -->
 <div class="release-featured">
   <div class="release-cover">
-    <img src="https://i.scdn.co/image/ab67616d0000b273d88b625b8d2b9f6a7e45066c" alt="Life Cycle of a Butterfly EP III">
+    <img src="https://i.scdn.co/image/ab67616d00001e02d88b625b8d2b9f6a7e45066c" alt="Life Cycle of a Butterfly EP III" loading="lazy">
   </div>
   <div class="release-info">
     <span class="release-tag">Latest Release · April 2026</span>
@@ -640,7 +664,7 @@ footer {
   </div>
   <div class="disc-grid">
     <a href="https://open.spotify.com/album/7G9DQaPD3LBaV1cJV72Dnv" target="_blank" class="disc-card reveal">
-      <img class="disc-img" src="https://i.scdn.co/image/ab67616d00001e02d88b625b8d2b9f6a7e45066c" alt="EP III">
+      <img class="disc-img" src="https://i.scdn.co/image/ab67616d00001e02d88b625b8d2b9f6a7e45066c" alt="EP III" loading="lazy">
       <div class="disc-overlay"><div class="disc-play">▶</div></div>
       <div class="disc-info">
         <div class="disc-title">Life Cycle: EP III</div>
@@ -648,7 +672,7 @@ footer {
       </div>
     </a>
     <a href="https://open.spotify.com/album/7nBeYYT0pMoS7bUXQS3vVq" target="_blank" class="disc-card reveal">
-      <img class="disc-img" src="https://i.scdn.co/image/ab67616d00001e02e7984dded845fa1eeef1bd15" alt="Money Long">
+      <img class="disc-img" src="https://i.scdn.co/image/ab67616d00001e02e7984dded845fa1eeef1bd15" alt="Money Long" loading="lazy">
       <div class="disc-overlay"><div class="disc-play">▶</div></div>
       <div class="disc-info">
         <div class="disc-title">Money Long</div>
@@ -659,7 +683,7 @@ footer {
       <iframe src="https://open.spotify.com/embed/album/4ARpbk8ojSLd2O7EtKaOYZ?utm_source=generator&theme=0" width="100%" height="100%" style="border:none;display:block;flex:1;min-height:280px;" loading="lazy"></iframe>
     </div>
     <a href="https://open.spotify.com/album/7a7FMXS4lWXMPiu5dmbmG6" target="_blank" class="disc-card reveal">
-      <img class="disc-img" src="https://i.scdn.co/image/ab67616d00001e026d7efd00655344007f1eb962" alt="Life Cycle of a Butterfly EP II">
+      <img class="disc-img" src="https://i.scdn.co/image/ab67616d00001e026d7efd00655344007f1eb962" alt="Life Cycle of a Butterfly EP II" loading="lazy">
       <div class="disc-overlay"><div class="disc-play">▶</div></div>
       <div class="disc-info">
         <div class="disc-title">Life Cycle: EP II</div>
@@ -743,7 +767,7 @@ footer {
     <div class="footer-top">
       <div>
         <a href="index.html" class="footer-logo">
-          <img src="https://res.cloudinary.com/dvznmnpys/image/upload/q_auto,f_auto,h_80/v1781182639/iDOPE_Logo-BIG-transparant_qlndoy.png" alt="iDOPE" style="height:56px;width:auto;display:block;">
+          <img src="https://res.cloudinary.com/dvznmnpys/image/upload/q_auto,f_auto,h_80/v1781182639/iDOPE_Logo-BIG-transparant_qlndoy.png" alt="iDOPE" style="height:56px;width:auto;display:block;" loading="lazy">
         </a>
         <p class="footer-tagline">More than a record label. A movement built on music, mental health, and independence.</p>
       </div>

@@ -560,8 +560,13 @@ footer {
       grid-template-columns: 1fr 1fr;
       gap: 0;
     }
-    .artist-section-body.reversed { direction: rtl; }
-    .artist-section-body.reversed > * { direction: ltr; }
+    
+    .artist-reversed { direction: rtl; }
+    .artist-reversed > * { direction: ltr; }
+    @media (max-width: 900px) {
+      .artist-reversed { direction: ltr; }
+    }
+
 
     .artist-section-img {
       overflow: hidden;
@@ -610,14 +615,14 @@ footer {
 
 <nav>
   <a href="index.html" class="nav-logo">
-    <img src="https://res.cloudinary.com/dvznmnpys/image/upload/q_auto,f_auto,h_72/v1781182639/iDOPE_Logo-BIG-transparant_qlndoy.png" alt="iDOPE" style="height:36px;width:auto;display:block;">
+    <img src="https://res.cloudinary.com/dvznmnpys/image/upload/q_auto,f_auto,h_72/v1781182639/iDOPE_Logo-BIG-transparant_qlndoy.png" alt="iDOPE" style="height:36px;width:auto;display:block;" loading="lazy">
   </a>
   <ul class="nav-links">
     <li><a href="index.html">Home</a></li>
     <li><a href="music.html">Music</a></li>
     <li><a href="artists.html" class="active">Artists</a></li>
     <li><a href="merch.html">Merch</a></li>
-    <li><a href="services.html">Services</a></li><li><a href="about.html">About</a></li>
+    <li><a href="about.html">About</a></li>
   </ul>
   <a href="mailto:info@idoperecords.com" class="nav-contact">Contact</a>
   <button class="hamburger" id="hamburger" aria-label="Open menu">
@@ -629,7 +634,6 @@ footer {
   <a href="music.html" onclick="closeMobile()">Music</a>
   <a href="artists.html" onclick="closeMobile()">Artists</a>
   <a href="merch.html" onclick="closeMobile()">Merch</a>
-  <a href="services.html" onclick="closeMobile()">Services</a>
   <a href="about.html" onclick="closeMobile()">About</a>
   <a href="mailto:info@idoperecords.com" class="mob-contact">Contact</a>
 </div>
@@ -647,7 +651,7 @@ footer {
 <div class="roster-grid">
 
   <a href="#dantiti" class="roster-item">
-    <img src="https://res.cloudinary.com/dvznmnpys/image/upload/q_auto,f_auto,w_700,c_fill,g_north/v1781184248/DANTITI_BIRMS-STUDIO_2_Small_zyddtx.jpg" alt="Dantiti">
+    <img src="https://res.cloudinary.com/dvznmnpys/image/upload/q_auto,f_auto,w_700,c_fill,g_north/v1781184248/DANTITI_BIRMS-STUDIO_2_Small_zyddtx.jpg" alt="Dantiti" loading="lazy">
     <div class="roster-overlay"></div>
     <div class="roster-content">
       <span class="roster-role">Artist</span>
@@ -658,7 +662,7 @@ footer {
   </a>
 
   <a href="#leopynk" class="roster-item">
-    <img src="https://res.cloudinary.com/dvznmnpys/image/upload/q_auto,f_auto,w_700,c_fill,g_north,e_improve,e_sharpen/v1783414708/Leo-Pynk_Pic_y27asu.jpg" alt="Leo Pynk">
+    <img src="https://res.cloudinary.com/dvznmnpys/image/upload/q_auto,f_auto,w_700,c_fill,g_north,e_improve,e_sharpen/v1783414708/Leo-Pynk_Pic_y27asu.jpg" alt="Leo Pynk" loading="lazy">
     <div class="roster-overlay"></div>
     <div class="roster-content">
       <span class="roster-role">Artist &amp; Producer</span>
@@ -669,7 +673,7 @@ footer {
   </a>
 
   <a href="#princetonbeatz" class="roster-item">
-    <img src="https://res.cloudinary.com/dvznmnpys/image/upload/q_auto,f_auto,w_700,c_fill,g_north/v1783414972/Princeton-Beatz-Pic_1_qhyy7s.jpg" alt="Princeton Beatz">
+    <img src="https://res.cloudinary.com/dvznmnpys/image/upload/q_auto,f_auto,w_700,c_fill,g_north/v1783414972/Princeton-Beatz-Pic_1_qhyy7s.jpg" alt="Princeton Beatz" loading="lazy">
     <div class="roster-overlay"></div>
     <div class="roster-content">
       <span class="roster-role">Producer</span>
@@ -690,7 +694,7 @@ footer {
   </div>
   <div class="artist-section-body">
     <div class="artist-section-img reveal">
-      <img src="https://res.cloudinary.com/dvznmnpys/image/upload/q_auto,f_auto,w_900,c_fill,g_north/v1781183915/Big_Big_Tinz_bkr3jd.jpg" alt="Dantiti">
+      <img src="https://res.cloudinary.com/dvznmnpys/image/upload/q_auto,f_auto,w_900,c_fill,g_north/v1781183915/Big_Big_Tinz_bkr3jd.jpg" alt="Dantiti" loading="lazy">
     </div>
     <div class="artist-section-info">
       <p class="artist-section-bio reveal">Dantiti built his sound from Nigeria to Ghana and to the UK, blending Afrobeats, Afrofusion, and Rap into something entirely his own. He founded iDOPE in 2017 to own his story from the start.</p>
@@ -701,7 +705,7 @@ footer {
         <a href="dantiti.html" class="artist-social-link">Full Profile</a>
       </div>
       <div class="reveal" style="margin-bottom:24px;">
-        <a href="https://dantiti.spotglow-studio.com" target="_blank" class="btn-primary" style="display:inline-block;background:var(--red);color:#fff;padding:13px 28px;font-size:12px;font-weight:700;letter-spacing:2px;text-transform:uppercase;border-radius:2px;transition:background 0.2s;" onmouseover="this.style.background='#aa0000'" onmouseout="this.style.background='var(--red)'">Visit Dantiti.com →</a>
+        <a href="https://dantiti.spotglow-studio.com" target="_blank" class="btn-primary" style="display:inline-block;background:var(--red);color:#fff;padding:13px 28px;font-size:12px;font-weight:700;letter-spacing:2px;text-transform:uppercase;border-radius:2px;transition:background 0.2s;">Visit Dantiti.com →</a>
       </div>
       <div class="artist-embed reveal">
         <iframe src="https://open.spotify.com/embed/artist/4khozhzk76aeDXJamgmutM?utm_source=generator&theme=0" height="160" loading="lazy"></iframe>
@@ -720,10 +724,10 @@ footer {
     <h2 class="artist-section-name">Leo Pynk</h2>
     <p class="artist-section-genre">Afrobeats · Afropop · Production</p>
   </div>
-  <div class="artist-section-body reversed">
+  <div class="artist-section-body artist-reversed">
     <div class="artist-section-img reveal" style="position:relative;">
       <div style="position:absolute;inset:0;background-image:url('https://res.cloudinary.com/dvznmnpys/image/upload/q_auto,f_auto,w_1200,c_fill,g_auto/v1783415341/Leo-Pynk_Pic-Background-Wide_tkigs5.jpg');background-size:cover;background-position:center top;filter:brightness(0.25) blur(3px);transform:scale(1.05);border-radius:2px;"></div>
-      <img src="https://res.cloudinary.com/dvznmnpys/image/upload/q_auto,f_auto,w_900,e_improve,e_sharpen/v1783414708/Leo-Pynk_Pic_y27asu.jpg" alt="Leo Pynk" style="position:relative;z-index:1;width:100%;height:auto;display:block;border-radius:2px;">
+      <img src="https://res.cloudinary.com/dvznmnpys/image/upload/q_auto,f_auto,w_900,e_improve,e_sharpen/v1783414708/Leo-Pynk_Pic_y27asu.jpg" alt="Leo Pynk" style="position:relative;z-index:1;width:100%;height:auto;display:block;border-radius:2px;" loading="lazy">
     </div>
     <div class="artist-section-info">
       <p class="artist-section-bio reveal">Born Iko Sunday in Edo State, Nigeria, Leo Pynk started singing at school and turned music into a career right out of Moshood Abiola Polytechnic in 2019. A versatile artist and producer, he blends Afrobeats and Afropop into his own distinct sound. Known for crafting the beat behind Dantiti's "Big Big Tinz" — originally made for Davido — Leo Pynk is one of Nigeria's most exciting rising forces in music.</p>
@@ -754,7 +758,7 @@ footer {
   </div>
   <div class="artist-section-body">
     <div class="artist-section-img reveal">
-      <img src="https://res.cloudinary.com/dvznmnpys/image/upload/q_auto,f_auto,w_900,c_fill,g_north/v1783414972/Princeton-Beatz-Pic_1_qhyy7s.jpg" alt="Princeton Beatz">
+      <img src="https://res.cloudinary.com/dvznmnpys/image/upload/q_auto,f_auto,w_900,c_fill,g_north/v1783414972/Princeton-Beatz-Pic_1_qhyy7s.jpg" alt="Princeton Beatz" loading="lazy">
     </div>
     <div class="artist-section-info">
       <p class="artist-section-bio reveal">Kedei Ofem, known as Princeton Beatz, is an Afrobeats music producer crafting rhythms that move the world. With 27 tracks and a growing catalogue on SoundCloud, he brings a distinct rhythmic sensibility to every beat he creates.</p>
@@ -764,14 +768,14 @@ footer {
       </div>
       <div class="reveal" style="max-width:320px;">
         <div style="position:relative;padding-bottom:177.78%;height:0;overflow:hidden;border-radius:2px;border:1px solid var(--border);">
-          <video controls style="position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;background:#000;">
+          <video controls playsinline style="position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;background:#000;">
             <source src="https://res.cloudinary.com/dvznmnpys/video/upload/q_auto/v1783414978/Princeton-Beatz-Vid_tspdy2.mp4" type="video/mp4">
           </video>
         </div>
       </div>
       <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:24px;" class="reveal">
-        <img src="https://res.cloudinary.com/dvznmnpys/image/upload/q_auto,f_auto,w_400/v1783414973/Princeton-Beatz-Pic_2_ikk7jk.jpg" alt="Princeton Beatz" style="width:100%;border-radius:2px;display:block;">
-        <img src="https://res.cloudinary.com/dvznmnpys/image/upload/q_auto,f_auto,w_400/v1783414738/Princeton-Beatz_profile-picture_hoibny.jpg" alt="Princeton Beatz" style="width:100%;border-radius:2px;display:block;">
+        <img src="https://res.cloudinary.com/dvznmnpys/image/upload/q_auto,f_auto,w_400/v1783414973/Princeton-Beatz-Pic_2_ikk7jk.jpg" alt="Princeton Beatz" style="width:100%;border-radius:2px;display:block;" loading="lazy">
+        <img src="https://res.cloudinary.com/dvznmnpys/image/upload/q_auto,f_auto,w_400/v1783414738/Princeton-Beatz_profile-picture_hoibny.jpg" alt="Princeton Beatz" style="width:100%;border-radius:2px;display:block;" loading="lazy">
       </div>
     </div>
   </div>
@@ -782,7 +786,7 @@ footer {
     <div class="footer-top">
       <div>
         <a href="index.html" class="footer-logo">
-          <img src="https://res.cloudinary.com/dvznmnpys/image/upload/q_auto,f_auto,h_80/v1781182639/iDOPE_Logo-BIG-transparant_qlndoy.png" alt="iDOPE" style="height:56px;width:auto;display:block;">
+          <img src="https://res.cloudinary.com/dvznmnpys/image/upload/q_auto,f_auto,h_80/v1781182639/iDOPE_Logo-BIG-transparant_qlndoy.png" alt="iDOPE" style="height:56px;width:auto;display:block;" loading="lazy">
         </a>
         <p class="footer-tagline">More than a record label. A movement built on music, mental health, and independence.</p>
       </div>

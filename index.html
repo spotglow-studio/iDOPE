@@ -4,10 +4,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>iDOPE | Records &amp; Brand</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;900&family=Inter:wght@300;400;500;600;700;900&display=swap" rel="stylesheet">
   <style>
+
     .footer-social { display: flex; gap: 14px; align-items: center; }
     .footer-social a {
       display: flex; align-items: center; justify-content: center;
@@ -357,8 +355,8 @@ footer {
     @media (max-width: 768px) {
       .new-releases-grid { grid-template-columns: repeat(2, 1fr); }
     }
-</style>
-  <style>
+
+
 
     .hero-video {
       position: absolute;
@@ -590,8 +588,8 @@ footer {
       .hero-title { font-size: clamp(80px, 24vw, 130px); }
       .hero-cta { flex-direction: column; align-items: center; }
     }
-  </style>
-  <style>
+  
+
   .nav-logo-img { height: 36px; width: auto; display: block; }
   nav { height: 76px; }
   .page-wrap { padding-top: 76px; }
@@ -605,9 +603,8 @@ footer {
       .fashion-teaser-grid { grid-template-columns: 1fr !important; }
     }
 
-  </style>
+  
 
-<style>
 @media (max-width: 768px) {
   .fashion-teaser-img {
     min-height: unset !important;
@@ -617,19 +614,34 @@ footer {
     height: auto !important;
   }
 }
-</style>
-</head>
+
+
+@media (max-width: 900px) {
+  [style*="grid-template-columns:1fr 1fr"] { grid-template-columns: 1fr !important; }
+  [style*="grid-template-columns: repeat(4"] { grid-template-columns: repeat(2,1fr) !important; }
+  [style*="grid-template-columns:repeat(2"] { grid-template-columns: 1fr !important; }
+}
+@media (max-width: 480px) {
+  [style*="grid-template-columns: repeat(4"] { grid-template-columns: repeat(2,1fr) !important; }
+}
+
+  </style>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;900&family=Inter:wght@300;400;500;600;700;900&display=swap" rel="stylesheet">
+  </head>
 <body class="page-wrap">
 
 <nav>
   <a href="index.html" class="nav-logo">
-    <img src="https://res.cloudinary.com/dvznmnpys/image/upload/q_auto,f_auto,h_72/v1781182639/iDOPE_Logo-BIG-transparant_qlndoy.png" alt="iDOPE" class="nav-logo-img">
+    <img src="https://res.cloudinary.com/dvznmnpys/image/upload/q_auto,f_auto,h_72/v1781182639/iDOPE_Logo-BIG-transparant_qlndoy.png" alt="iDOPE" class="nav-logo-img" loading="lazy">
   </a>
   <ul class="nav-links">
-    <li><a href="index.html" class="active">Home</a></li><li><a href="artists.html">Artists</a></li>
-    <li><a href="music.html" >Music</a></li>
-    <li><a href="merch.html" >Merch</a></li>
-    <li><a href="about.html" >About</a></li>
+    <li><a href="index.html" class="active">Home</a></li>
+    <li><a href="music.html">Music</a></li>
+    <li><a href="artists.html">Artists</a></li>
+    <li><a href="merch.html">Merch</a></li>
+    <li><a href="about.html">About</a></li>
   </ul>
   <a href="mailto:info@idoperecords.com" class="nav-contact">Contact</a>
   <button class="hamburger" id="hamburger" aria-label="Open menu">
@@ -642,7 +654,6 @@ footer {
   <a href="music.html" onclick="closeMobile()">Music</a>
   <a href="artists.html" onclick="closeMobile()">Artists</a>
   <a href="merch.html" onclick="closeMobile()">Merch</a>
-  <a href="services.html" onclick="closeMobile()">Services</a>
   <a href="about.html" onclick="closeMobile()">About</a>
   <a href="mailto:info@idoperecords.com" class="mob-contact">Contact</a>
 </div>
@@ -656,7 +667,7 @@ footer {
 <!-- CATEGORY BANNERS -->
 <div class="cat-banners">
   <a href="music.html" class="cat-banner">
-    <img src="https://i.scdn.co/image/ab67616d0000b273d88b625b8d2b9f6a7e45066c" alt="New Music">
+    <img src="https://i.scdn.co/image/ab67616d00001e02d88b625b8d2b9f6a7e45066c" alt="New Music" loading="lazy">
     <div class="cat-color"></div>
     <div class="cat-content">
       <span class="cat-number">01</span>
@@ -665,7 +676,7 @@ footer {
     </div>
   </a>
   <a href="artists.html" class="cat-banner">
-    <img src="https://res.cloudinary.com/dvznmnpys/image/upload/q_auto,f_auto,w_700,c_fill,g_north/v1781183611/Artist_Dantiti_kqjv4k.png" alt="Artists" style="object-position: top center;">
+    <img src="https://res.cloudinary.com/dvznmnpys/image/upload/q_auto,f_auto,w_700,c_fill,g_north/v1781183611/Artist_Dantiti_kqjv4k.png" alt="Artists" style="object-position: top center;" loading="lazy">
     <div class="cat-color"></div>
     <div class="cat-content">
       <span class="cat-number">02</span>
@@ -674,7 +685,7 @@ footer {
     </div>
   </a>
   <a href="merch.html" class="cat-banner">
-    <img src="https://res.cloudinary.com/dvznmnpys/image/upload/q_auto,f_auto,w_700,c_fill,g_north/v1781183655/Fashion_Woman_ktomaq.png" alt="Merch">
+    <img src="https://res.cloudinary.com/dvznmnpys/image/upload/q_auto,f_auto,w_700,c_fill,g_north/v1781183655/Fashion_Woman_ktomaq.png" alt="Merch" loading="lazy">
     <div class="cat-color"></div>
     <div class="cat-content">
       <span class="cat-number">03</span>
@@ -698,7 +709,7 @@ footer {
   <div class="new-releases-grid">
     <a href="https://open.spotify.com/album/7G9DQaPD3LBaV1cJV72Dnv" target="_blank" class="nr-card reveal">
       <div class="nr-img-wrap">
-        <img src="https://i.scdn.co/image/ab67616d0000b273d88b625b8d2b9f6a7e45066c" alt="Life Cycle of a Butterfly EP III">
+        <img src="https://i.scdn.co/image/ab67616d00001e02d88b625b8d2b9f6a7e45066c" alt="Life Cycle of a Butterfly EP III" loading="lazy">
         <div class="nr-overlay"><span class="nr-play">▶</span></div>
         <span class="nr-badge">Latest</span>
       </div>
@@ -710,7 +721,7 @@ footer {
     </a>
     <a href="https://open.spotify.com/album/7nBeYYT0pMoS7bUXQS3vVq" target="_blank" class="nr-card reveal">
       <div class="nr-img-wrap">
-        <img src="https://i.scdn.co/image/ab67616d0000b273e7984dded845fa1eeef1bd15" alt="Money Long">
+        <img src="https://i.scdn.co/image/ab67616d00001e02e7984dded845fa1eeef1bd15" alt="Money Long" loading="lazy">
         <div class="nr-overlay"><span class="nr-play">▶</span></div>
       </div>
       <div class="nr-info">
@@ -721,7 +732,7 @@ footer {
     </a>
     <a href="https://open.spotify.com/album/4ARpbk8ojSLd2O7EtKaOYZ" target="_blank" class="nr-card reveal">
       <div class="nr-img-wrap">
-        <img src="https://res.cloudinary.com/dvznmnpys/image/upload/q_auto,f_auto,w_600,c_fill,g_north/v1781183915/Big_Big_Tinz_bkr3jd.jpg" alt="Big Big Tinz">
+        <img src="https://res.cloudinary.com/dvznmnpys/image/upload/q_auto,f_auto,w_600,c_fill,g_north/v1781183915/Big_Big_Tinz_bkr3jd.jpg" alt="Big Big Tinz" loading="lazy">
         <div class="nr-overlay"><span class="nr-play">▶</span></div>
       </div>
       <div class="nr-info">
@@ -732,7 +743,7 @@ footer {
     </a>
     <a href="https://open.spotify.com/album/7a7FMXS4lWXMPiu5dmbmG6" target="_blank" class="nr-card reveal">
       <div class="nr-img-wrap">
-        <img src="https://i.scdn.co/image/ab67616d0000b2736d7efd00655344007f1eb962" alt="Life Cycle EP II">
+        <img src="https://i.scdn.co/image/ab67616d00001e026d7efd00655344007f1eb962" alt="Life Cycle EP II" loading="lazy">
         <div class="nr-overlay"><span class="nr-play">▶</span></div>
       </div>
       <div class="nr-info">
@@ -773,17 +784,6 @@ footer {
 
 <!-- FOOTER -->
 
-<style>
-@media (max-width: 900px) {
-  [style*="grid-template-columns:1fr 1fr"] { grid-template-columns: 1fr !important; }
-  [style*="grid-template-columns: repeat(4"] { grid-template-columns: repeat(2,1fr) !important; }
-  [style*="grid-template-columns:repeat(2"] { grid-template-columns: 1fr !important; }
-}
-@media (max-width: 480px) {
-  [style*="grid-template-columns: repeat(4"] { grid-template-columns: repeat(2,1fr) !important; }
-}
-</style>
-
 <!-- VIDEO SECTION -->
 <div style="border-top: 1px solid var(--border); background: var(--dark);">
   <div class="section-wrap">
@@ -808,12 +808,12 @@ footer {
     <div class="press-strip-card reveal" style="background:var(--card); padding:44px 48px;">
       <div style="font-size:32px; color:var(--red); font-family:'Barlow Condensed'; margin-bottom:12px;">"</div>
       <p style="font-size:16px; color:var(--light); line-height:1.8; font-style:italic; margin-bottom:20px;">A rising creative force with the versatility and vision to help shape Afrobeats' evolving future.</p>
-      <a href="https://www.thepitldn.com/pitnews/big-big-tinz" target="_blank" style="font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--grey);text-decoration:none;transition:color 0.2s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='var(--grey)'">The Pit London →</a>
+      <a href="https://www.thepitldn.com/pitnews/big-big-tinz" target="_blank" style="font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--grey);text-decoration:none;transition:color 0.2s;" class="press-source-link">The Pit London →</a>
     </div>
     <div class="press-strip-card reveal" style="background:var(--card); padding:44px 48px;">
       <div style="font-size:32px; color:var(--red); font-family:'Barlow Condensed'; margin-bottom:12px;">"</div>
       <p style="font-size:16px; color:var(--light); line-height:1.8; font-style:italic; margin-bottom:20px;">Immediately engaging yet layered with personality and intention. An essential listen for fans of forward-thinking Afrobeats.</p>
-      <a href="https://www.flexmusicblog.com/post/dantiti-releases-new-single-big-big-tinz" target="_blank" style="font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--grey);text-decoration:none;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='var(--grey)'">Flex Music Blog →</a>
+      <a href="https://www.flexmusicblog.com/post/dantiti-releases-new-single-big-big-tinz" target="_blank" style="font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--grey);text-decoration:none;" class="press-source-link">Flex Music Blog →</a>
     </div>
   </div>
 </div>
@@ -825,7 +825,7 @@ footer {
       <img src="https://res.cloudinary.com/dvznmnpys/image/upload/q_auto,f_auto,w_1000/v1781096257/Model-with_Crewneck-Sweatshirt_Brown-Caterpillar_AND_Cap_Red-White_q4jxcc.png"
         alt="iDOPE Merch"
         style="width:100%;height:auto;display:block;transition:transform 0.6s;"
-        onmouseover="this.style.transform='scale(1.04)'" onmouseout="this.style.transform='scale(1)'">
+        loading="lazy">
     </div>
     <div style="background:var(--dark);display:flex;flex-direction:column;justify-content:center;padding:72px 64px;">
       <span class="section-label reveal">2026 Collection</span>
@@ -843,7 +843,7 @@ footer {
     <div class="footer-top">
       <div>
         <a href="index.html" class="footer-logo">
-          <img src="https://res.cloudinary.com/dvznmnpys/image/upload/q_auto,f_auto,h_80/v1781182639/iDOPE_Logo-BIG-transparant_qlndoy.png" alt="iDOPE" style="height:56px;width:auto;display:block;">
+          <img src="https://res.cloudinary.com/dvznmnpys/image/upload/q_auto,f_auto,h_80/v1781182639/iDOPE_Logo-BIG-transparant_qlndoy.png" alt="iDOPE" style="height:56px;width:auto;display:block;" loading="lazy">
         </a>
         <p class="footer-tagline">More than a record label. A movement built on music, mental health, and independence.</p>
       </div>
