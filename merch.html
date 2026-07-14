@@ -161,9 +161,10 @@ nav {
   gap: 28px;
   transform: translateY(-16px);
   opacity: 0;
+  pointer-events: none;
   transition: transform 0.35s cubic-bezier(0.4,0,0.2,1), opacity 0.35s;
 }
-.mobile-menu.open { transform: translateY(0); opacity: 1; }
+.mobile-menu.open { transform: translateY(0); opacity: 1; pointer-events: auto; }
 .mobile-menu a {
   color: var(--white); text-decoration: none;
   font-size: 28px; font-family: 'Barlow Condensed', sans-serif;
@@ -449,10 +450,15 @@ footer {
 <div class="page-hero">
   <div class="page-hero-bg"></div>
   <div class="page-hero-content">
-    <span class="page-hero-label">2026 Collection</span>
-    <h1 class="page-hero-title"><img src="https://res.cloudinary.com/dvznmnpys/image/upload/q_auto,f_auto,h_120/v1781182639/iDOPE_Logo-BIG-transparant_qlndoy.png" alt="iDOPE" style="height:clamp(60px,8vw,100px);width:auto;display:inline-block;vertical-align:middle;" loading="lazy"><br>Merch</h1>
-    <p class="page-hero-sub">Seasonal drops. Limited pieces. Every item authenticated for life. Streetwear rooted in the same culture that drives the music.</p>
+    <span class="page-hero-label">iDOPE</span>
+    <h1 class="page-hero-title">Merch</h1>
   </div>
+</div>
+
+<!-- COLLECTION INTRO -->
+<div class="section-wrap" style="padding-bottom: 0;">
+  <span class="section-label reveal">2026 Collection</span>
+  <p style="font-size: 15px; color: var(--light); line-height: 1.7; max-width: 480px; margin-top: 16px;" class="reveal">Seasonal drops. Limited pieces. Every item authenticated for life. Streetwear rooted in the same culture that drives the music.</p>
 </div>
 
 <!-- CATEGORY STRIP -->

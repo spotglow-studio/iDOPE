@@ -161,9 +161,10 @@ nav {
   gap: 28px;
   transform: translateY(-16px);
   opacity: 0;
+  pointer-events: none;
   transition: transform 0.35s cubic-bezier(0.4,0,0.2,1), opacity 0.35s;
 }
-.mobile-menu.open { transform: translateY(0); opacity: 1; }
+.mobile-menu.open { transform: translateY(0); opacity: 1; pointer-events: auto; }
 .mobile-menu a {
   color: var(--white); text-decoration: none;
   font-size: 28px; font-family: 'Barlow Condensed', sans-serif;
@@ -445,7 +446,7 @@ footer {
   <div class="page-hero-bg"></div>
   <div class="page-hero-content">
     <span class="page-hero-label">From Lagos to London &bull; EST. 2017</span>
-    <h1 class="page-hero-title">About<br><img src="https://res.cloudinary.com/dvznmnpys/image/upload/q_auto,f_auto,h_120/v1781182639/iDOPE_Logo-BIG-transparant_qlndoy.png" alt="iDOPE" style="height:clamp(60px,8vw,100px);width:auto;display:inline-block;vertical-align:middle;" loading="lazy"></h1>
+    <h1 class="page-hero-title">About</h1>
   </div>
 </div>
 
