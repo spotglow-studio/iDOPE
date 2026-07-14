@@ -384,15 +384,7 @@ footer {
 
     /* HERO */
     .hero {
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      padding: 120px 40px 80px;
-      position: relative;
-      overflow: hidden;
+      display: none;
     }
     .hero-bg {
       position: absolute; inset: 0;
@@ -437,10 +429,11 @@ footer {
     .cat-banners {
       display: grid; grid-template-columns: repeat(3, 1fr);
       gap: 3px; background: var(--border);
+      min-height: calc(100vh - 76px); min-height: calc(100dvh - 76px);
     }
     .cat-banner {
       position: relative; overflow: hidden;
-      aspect-ratio: 3/4; cursor: pointer;
+      height: 100%; cursor: pointer;
       text-decoration: none; display: block;
     }
     .cat-banner img {
@@ -576,8 +569,6 @@ footer {
     }
 
     @media (max-width: 900px) {
-      .cat-banners { grid-template-columns: 1fr; }
-      .cat-banner { aspect-ratio: 16/7; }
       .releases-preview { grid-template-columns: 1fr; }
       .release-featured { min-height: 340px; }
       .artist-teaser { grid-template-columns: 1fr; }
@@ -587,6 +578,21 @@ footer {
     @media (max-width: 600px) {
       .hero-title { font-size: clamp(80px, 24vw, 130px); }
       .hero-cta { flex-direction: column; align-items: center; }
+    }
+
+    /* CATEGORY BANNERS — narrower text on smaller screens, tiles already fill viewport on all sizes */
+    @media (max-width: 768px) {
+      .cat-banners { gap: 2px; min-height: calc(100vh - 156px); min-height: calc(100dvh - 156px); }
+      .cat-banner img { filter: brightness(0.65); }
+      .cat-content { padding: 12px 8px; }
+      .cat-number { font-size: 8px; letter-spacing: 1.5px; margin-bottom: 4px; }
+      .cat-title { font-size: clamp(20px, 6.5vw, 30px); letter-spacing: 0.3px; margin-bottom: 6px; line-height: 1.05; }
+      .cat-link { font-size: 8px; letter-spacing: 1px; gap: 3px; }
+    }
+    @media (max-width: 420px) {
+      .cat-content { padding: 10px 6px; }
+      .cat-title { font-size: clamp(18px, 6.2vw, 26px); }
+      .cat-link { font-size: 7px; }
     }
   
 
@@ -664,6 +670,8 @@ footer {
   <video class="hero-video" autoplay muted loop playsinline>
     <source src="https://res.cloudinary.com/dvznmnpys/video/upload/q_auto/v1781180988/DANTITI_combined_small_pdt7co.mp4" type="video/mp4">
   </video>
+</section>
+
 <!-- CATEGORY BANNERS -->
 <div class="cat-banners">
   <a href="music.html" class="cat-banner">
